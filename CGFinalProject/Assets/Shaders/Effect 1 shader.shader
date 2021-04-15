@@ -27,6 +27,24 @@
 
         float4 _Color;
 
+		inline float3 CalculateTexture(sampler2D tex, float2 uvs)
+		{
+			float3 text = tex2D(tex, uvs).rgb;
+
+			return text;
+		}
+
+		inline float2 MoveTextures(float2 uvs, float speedx, float speedy)
+		{
+			float2 movingUVs = uvs;
+			float distanceX = speedx.x * _Time.x;
+			float distanceY = speedy.x * _Time.x;
+
+			movingUVs += float2(distanceX, distanceY);
+
+			return movingUVs;
+		}
+
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
         // #pragma instancing_options assumeuniformscaling
