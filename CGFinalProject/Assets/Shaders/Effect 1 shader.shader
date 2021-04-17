@@ -10,7 +10,7 @@
 		_SpeedX("Speed in X", Range(0,10)) = 2
 		_SpeedY("Speed in Y", Range(0,10)) = 2
 
-		_EmissionFactor ("Factor Emission Slider", Range(0,1)) = 0
+		_EmissionFactor ("Factor Emission Slider", Range(-1,1)) = 0
 		_SmoothnessEmission("Emission Smoothness", Range(0,0.5)) = 0
     }
     SubShader
@@ -74,7 +74,7 @@
 
 			float fresnelEmission = smoothstep(_SmoothnessEmission, 1 - _SmoothnessEmission, fresnelOutput + _EmissionFactor);
 
-            o.Albedo = CalculateTexture(_Tex, MoveTextures(IN.uv_Tex, _SpeedX, _SpeedY)) /** (1 - fresnelOutput) + (fresnel * _Color)*/;
+            o.Albedo = CalculateTexture(_Tex, MoveTextures(IN.uv_Tex, _SpeedX, _SpeedY)) * _Color /** (1 - fresnelOutput) + (fresnel * _Color)*/;
 			o.Emission = fresnelEmission * _EdgesColor;
         }
         ENDCG
