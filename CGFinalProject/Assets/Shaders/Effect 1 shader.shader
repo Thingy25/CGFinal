@@ -2,9 +2,16 @@
 {
     Properties
     {
-        _MainTex ("Albedo", 2D) = "white" {}
+        _Tex ("Main Texture", 2D) = "white" {}
 
-		_Color("Color", Color) = (1,1,1,1)
+		[HDR] _Color ("Texture Color", Color) = (1,1,1,1)
+		[HDR] _EdgesColor ("Edges Color", Color) = (1,1,1,1)
+
+		_SpeedX("Speed in X", Range(0,10)) = 2
+		_SpeedY("Speed in Y", Range(0,10)) = 2
+
+		_EmissionFactor ("Factor Emission Slider", Range(-1,1)) = 0
+		_SmoothnessEmission("Emission Smoothness", Range(0,0.5)) = 0
     }
     SubShader
     {
@@ -12,20 +19,26 @@
         LOD 200
 
         CGPROGRAM
-        // Physically based Standard lighting model, and enable shadows on all light types
         #pragma surface surf Standard fullforwardshadows
-
-        // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
 
         struct Input
         {
-            float2 uv_MainTex;
+            float2 uv_Tex;
+			float3 worldNormal;
+			float3 viewDir;
         };
 
-		sampler2D _MainTex;
+		sampler2D _Tex;
 
         float4 _Color;
+        float4 _EdgesColor;
+
+		float _SpeedX;
+		float _SpeedY;
+
+		float _SmoothnessEmission;
+		float _EmissionFactor;
 
 		inline float3 CalculateTexture(sampler2D tex, float2 uvs)
 		{
@@ -34,29 +47,35 @@
 			return text;
 		}
 
+		inline float3 CalculateEdges(Input IN)
+		{
+			float edges = 1 - dot(IN.viewDir, IN.worldNormal);
+
+			return edges;
+		}
+
 		inline float2 MoveTextures(float2 uvs, float speedx, float speedy)
 		{
 			float2 movingUVs = uvs;
-			float distanceX = speedx.x * _Time.x;
-			float distanceY = speedy.x * _Time.x;
+			float distanceX = speedx.x * _Time.y;
+			float distanceY = speedy.x * _Time.y;
 
 			movingUVs += float2(distanceX, distanceY);
 
 			return movingUVs;
 		}
 
-        // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-        // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-        // #pragma instancing_options assumeuniformscaling
         UNITY_INSTANCING_BUFFER_START(Props)
-            // put more per-instance properties here
         UNITY_INSTANCING_BUFFER_END(Props)
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb;
+			half3 fresnelOutput = CalculateEdges(IN);
+
+			float fresnelEmission = smoothstep(_SmoothnessEmission, 1 - _SmoothnessEmission, fresnelOutput + _EmissionFactor);
+
+            o.Albedo = CalculateTexture(_Tex, MoveTextures(IN.uv_Tex, _SpeedX, _SpeedY)) * _Color /** (1 - fresnelOutput) + (fresnel * _Color)*/;
+			o.Emission = fresnelEmission * _EdgesColor;
         }
         ENDCG
     }
