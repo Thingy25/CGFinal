@@ -8,8 +8,6 @@ public class EffectController : MonoBehaviour
     [SerializeField] GameObject psObj1;
     [SerializeField] GameObject psObj2;
 
-    [SerializeField] Gradient gradient;
-
     GameObject activeEffectObject;
 
     ParticleSystem ps;
@@ -20,7 +18,8 @@ public class EffectController : MonoBehaviour
     
 
     void Start() {  
-        anim = null; //Placeholder      
+        anim = null; //Placeholder
+        if (!activeEffectObject) activeEffectObject = psObj1;  
         ps = activeEffectObject?.GetComponent<ParticleSystem>();
         effectDuration = ps.main.duration + ps.main.startLifetimeMultiplier;
         t = effectDuration;
