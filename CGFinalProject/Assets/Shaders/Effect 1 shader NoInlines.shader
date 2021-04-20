@@ -1,12 +1,18 @@
-﻿Shader "Custom/Effect 1 shader/Inlines"
+﻿Shader "Custom/Effect 1 shader/NoInlines"
 {
+	//NECESITO EXPLICACIÓN DE ESTO
+
+
+
+
+
+
     Properties
     {
         _MainTex ("Main Texture", 2D) = "white" {}
         _MaskTex ("Mask Texture", 2D) = "white" {}
 
-		[HDR] _Color ("Main Texture Color", Color) = (1,1,1,1)
-		[HDR] _ColorMask ("Mask Colors", Color) = (1,1,1,1)
+		[HDR] _Color ("Main Colors", Color) = (1,1,1,1)
 		[HDR] _EdgesColor ("Edges Color", Color) = (1,1,1,1)
 
 		_SpeedX("Speed in X", Range(0,10)) = 2
@@ -36,7 +42,6 @@
 		sampler2D _MaskTex;
 
         float4 _Color;
-        float4 _ColorMask;
         float4 _EdgesColor;
 
 		float _SpeedX;
@@ -75,11 +80,30 @@
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-			float fresnelOutput = CalculateEdges(IN);
+			// Textures ----
+			float3 mainTex = tex2D(_MainTex, IN.uv_MainTex);
+			float3 maskTex = tex2D(_MaskTex, IN.uv_MaskTex);
+
+			// Movement ----
+			float distanceX = _SpeedX.x * _Time.y;
+			float distanceY = _SpeedY.x * _Time.y;
+
+			//UVs aquí += float2(distanceX, distanceY);
+
+			// Edges ----
+			float fresnelOutput = 1 - dot(IN.viewDir, IN.worldNormal);
 			float fresnelEmission = smoothstep(_SmoothnessEmission, 1 - _SmoothnessEmission, fresnelOutput + _EmissionFactor);
 
-            o.Albedo = (CalculateTexture(_MainTex, IN.uv_MainTex) * _Color) * (1 - CalculateTexture(_MaskTex, MoveTextures(IN.uv_MaskTex, _SpeedX, _SpeedY))) + (_ColorMask * CalculateTexture(_MaskTex, MoveTextures(IN.uv_MaskTex, _SpeedX, _SpeedY)));
-			o.Emission = fresnelEmission * _EdgesColor;
+			// Calculations ----
+			float3 invertedMask = (1 - maskTex);
+
+
+
+
+
+            //o.Albedo = CalculateTexture(_Tex, MoveTextures(IN.uv_Tex, _SpeedX, _SpeedY)) * _Color /** (1 - fresnelOutput) + (fresnel * _Color)*/;
+			//o.Albedo = mainTex + maskTex * invertedMask;
+			//o.Emission = fresnelEmission * _EdgesColor;
         }
         ENDCG
     }
