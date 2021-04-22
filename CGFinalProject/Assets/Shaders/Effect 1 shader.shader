@@ -3,7 +3,7 @@
     Properties
     {
         _MainTex ("Main Texture", 2D) = "white" {}
-        _MaskTex ("Mask Texture", 2D) = "white" {}
+        //_MaskTex ("Mask Texture", 2D) = "white" {}
 
 		[HDR] _Color ("Main Texture Color", Color) = (1,1,1,1)
 		[HDR] _ColorMask ("Mask Colors", Color) = (1,1,1,1)
@@ -78,7 +78,7 @@
 			float fresnelOutput = CalculateEdges(IN);
 			float fresnelEmission = smoothstep(_SmoothnessEmission, 1 - _SmoothnessEmission, fresnelOutput + _EmissionFactor);
 
-            o.Albedo = (CalculateTexture(_MainTex, IN.uv_MainTex) * _Color) * (1 - CalculateTexture(_MaskTex, MoveTextures(IN.uv_MaskTex, _SpeedX, _SpeedY))) + (_ColorMask * CalculateTexture(_MaskTex, MoveTextures(IN.uv_MaskTex, _SpeedX, _SpeedY)));
+            o.Albedo = (CalculateTexture(_MainTex, MoveTextures(IN.uv_MainTex, _SpeedX, _SpeedY)) * _Color) /** (1 - CalculateTexture(_MaskTex, MoveTextures(IN.uv_MaskTex, _SpeedX, _SpeedY))) + (_ColorMask * CalculateTexture(_MaskTex, MoveTextures(IN.uv_MaskTex, _SpeedX, _SpeedY)))*/;
 			o.Emission = fresnelEmission * _EdgesColor;
         }
         ENDCG
