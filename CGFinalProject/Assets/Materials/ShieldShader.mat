@@ -70,7 +70,7 @@ Material:
     - _GlossyReflections: 1
     - _MainTexAlpha: 0
     - _MaskTexAlpha: 0
-    - _MeshAlpha: 0
+    - _MeshAlpha: 0.087
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
