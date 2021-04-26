@@ -66,7 +66,7 @@ Material:
     - _DstBlend: 0
     - _EmissionFactor: -1
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0.55
     - _GlossyReflections: 1
     - _MainTexAlpha: 0
     - _MaskTexAlpha: 0
