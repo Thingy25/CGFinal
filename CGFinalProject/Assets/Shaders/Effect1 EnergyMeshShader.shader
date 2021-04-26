@@ -21,6 +21,7 @@
 			"RenderType" = "TransparentCutout" 
 		}
         //LOD 200
+        Cull Off //Para que se vea por ambos lados
 
 		pass {
 			ZWrite On
@@ -75,8 +76,9 @@
 			float fresnelEmission = smoothstep(_SmoothnessEmission, 1 - _SmoothnessEmission, fresnelOutput + _EmissionFactor);
 
 			o.Albedo = color.rgb;
-			o.Emission = fresnelEmission * _EdgesColor;
+			//o.Emission = fresnelEmission * _EdgesColor;
 			o.Alpha = color.a * _MeshAlpha;
+            o.Smoothness = _Glossiness;
 			//o.Alpha = o.Alpha * (((1 - _MaskTexColor) + (_MaskTexColor)).a * _MaskTexAlpha);
 
 
@@ -90,7 +92,6 @@
 
             //// Metallic and smoothness come from slider variables
             //o.Metallic = _Metallic;
-            //o.Smoothness = _Glossiness;
             //o.Alpha = c.a;
         }
         ENDCG

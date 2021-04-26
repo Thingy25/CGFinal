@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ShieldShader
-  m_Shader: {fileID: 4800000, guid: 69dcad6a18a190843afe047203706869, type: 3}
+  m_Name: GlossyTest
+  m_Shader: {fileID: 4800000, guid: b790e51ed79b7ba42b79bab4843725b4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -43,10 +43,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -64,30 +60,18 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EmissionFactor: -1
     - _GlossMapScale: 1
-    - _Glossiness: 0.55
+    - _Glossiness: 1
     - _GlossyReflections: 1
-    - _MainTexAlpha: 0
-    - _MaskTexAlpha: 0
-    - _MeshAlpha: 0.087
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SmoothnessEmission: -0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpeedX: 0.1
-    - _SpeedY: 0.1
     - _SrcBlend: 1
-    - _TilingSize: 0
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EdgesColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainTexColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MaskTexColor: {r: 1, g: 1, b: 1, a: 1}

@@ -31,6 +31,7 @@
 			"RenderType" = "TransparentCutout" 
 		}
         //LOD 200
+		//Cull Off //Para que se vea por ambos lados (Comentado por ahora por situaciones técnicas).
 
 		/*pass {
 			ZWrite On

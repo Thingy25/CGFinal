@@ -66,10 +66,11 @@ Material:
     - _DstBlend: 0
     - _EmissionFactor: -0.38
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 1
     - _GlossyReflections: 1
     - _MainTexAlpha: 0.03
     - _MaskTexAlpha: 1
+    - _MeshAlpha: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -87,5 +88,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EdgesColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainTexColor: {r: 2, g: 2, b: 2, a: 1}
     - _MaskTexColor: {r: 9.685681, g: 9.685681, b: 9.685681, a: 1}
