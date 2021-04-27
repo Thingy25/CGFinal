@@ -2,7 +2,6 @@
 {
     Properties
     {
-        _MainTex ("Main Texture", 2D) = "white" {}
         _MaskTex ("Mask Texture", 2D) = "white" {}
 
         [HDR] _MainTexColor ("Main Texture Color", Color) = (1,1,1,1)
@@ -11,6 +10,7 @@
 		_MainTexAlpha("Main Texture Alpha", Range(0,1)) = 0
 
 		_RingDistorsionTransforms("Ring Distorsion Transforms (Speed/Scale)", Vector) = (0,0,1,1)
+		_RingDistorsionSpeed("Ring Distorsion Speed", Float) = 0
     }
     SubShader
     {
@@ -42,7 +42,6 @@
 			float3 viewDir;
         };
         
-		sampler2D _MainTex;
 		sampler2D _MaskTex;
 		
 		fixed4 _MainTexColor;
@@ -51,6 +50,7 @@
 		float _MainTexAlpha;
 
 		half4 _RingDistorsionTransforms;
+		half _RingDistorsionSpeed;
         
 		inline float2 MoveTextures(float2 uvs, float speedx, float speedy)
 		{
@@ -79,7 +79,6 @@
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-			float3 mainTex = tex2D(_MainTex, IN.uv_MainTex);
 
 			half2 tb = tex2D(_MaskTex, IN.worldPos.xz * _RingDistorsionTransforms.zw - _Time.x * _RingDistorsionTransforms.xz).xy * abs(IN.worldNormal.y);
 			half2 lr = tex2D(_MaskTex, IN.worldPos.yz * _RingDistorsionTransforms.zw - _Time.x * _RingDistorsionTransforms.yz).xy * abs(IN.worldNormal.x);
@@ -89,10 +88,12 @@
 
 
 
-			half2 energyColor = saturate(tb + lr + fb);
+			half2 outputUVs = saturate(tb + lr + fb);
 
 
-			fixed4 mask = tex2D(_MaskTex, IN.uv_MainTex + energyColor * 0.0125);
+			fixed4 mask = tex2D(_MaskTex, outputUVs - (_Time.x * _RingDistorsionSpeed));
+			//fixed4 mask = tex2D(_MaskTex, IN.uv_MainTex + outputUVs * 0.13);
+
 			//fixed4 lr = tex2D(_MaskTex, MoveTextures(IN.worldPos.yz, _SpeedX, _SpeedY) * _TilingSize);
 			//fixed4 fb = tex2D(_MaskTex, MoveTextures(IN.worldPos.xy, _SpeedX, -_SpeedY) * _TilingSize);
 
@@ -105,7 +106,7 @@
 			float fresnelOutput = CalculateEdges(IN);
 			float fresnelEmission = smoothstep(_SmoothnessEmission, 1 - _SmoothnessEmission, fresnelOutput + _EmissionFactor);*/
 
-			o.Albedo = (mask * _MainTexColor);
+			o.Albedo = _MainTexColor * (1 - mask) + (_MaskTexColor * mask);
 			//o.Emission = fresnelEmission * _EdgesColor;
 			o.Alpha = _MainTexColor.a * _MainTexAlpha;
 			//o.Alpha = o.Alpha * (((1 - _MaskTexColor) + (_MaskTexColor)).a * _MaskTexAlpha);

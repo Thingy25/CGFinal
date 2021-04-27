@@ -68,19 +68,20 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MainTexAlpha: 1
+    - _MainTexAlpha: 0.465
     - _MaskTexAlpha: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _RingDistorsionSpeed: 0
     - _SmoothnessEmission: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpeedX: 0.132
+    - _SpeedX: 0.1
     - _SpeedY: 0.1
     - _SrcBlend: 1
-    - _TilingSize: 0.271
+    - _TilingSize: 0
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
@@ -88,5 +89,5 @@ Material:
     - _EdgesColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainTexColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MaskTexColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RingDistorsionTransforms: {r: 0, g: 0, b: 1, a: 1}
+    - _MaskTexColor: {r: 2.6666667, g: 2.6666667, b: 2.6666667, a: 1}
+    - _RingDistorsionTransforms: {r: 0, g: 0, b: 0.5, a: 0.5}
