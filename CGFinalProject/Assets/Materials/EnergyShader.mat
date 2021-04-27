@@ -68,7 +68,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
-    - _MainTexAlpha: 0.03
+    - _MainTexAlpha: 0.12
     - _MaskTexAlpha: 1
     - _MeshAlpha: 0
     - _Metallic: 0

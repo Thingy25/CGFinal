@@ -76,7 +76,7 @@
 			float fresnelEmission = smoothstep(_SmoothnessEmission, 1 - _SmoothnessEmission, fresnelOutput + _EmissionFactor);
 
 			o.Albedo = color.rgb;
-			//o.Emission = fresnelEmission * _EdgesColor;
+			o.Emission = fresnelEmission * _EdgesColor;
 			o.Alpha = color.a * _MeshAlpha;
             o.Smoothness = _Glossiness;
 			//o.Alpha = o.Alpha * (((1 - _MaskTexColor) + (_MaskTexColor)).a * _MaskTexAlpha);
