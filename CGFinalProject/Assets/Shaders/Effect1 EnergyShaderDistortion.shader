@@ -8,6 +8,7 @@
         [HDR] _MaskTexColor ("Mask Texture Color", Color) = (1,1,1,1)
 
 		_MainTexAlpha("Main Texture Alpha", Range(0,1)) = 0
+		_MaskTexAlpha("Mask Texture Alpha", Range(0,1)) = 0
 
 		_RingDistorsionTransforms("Ring Distorsion Transforms (Speed/Scale)", Vector) = (0,0,1,1)
 		_RingDistorsionSpeed("Ring Distorsion Speed", Float) = 0
@@ -48,6 +49,7 @@
 		fixed4 _MaskTexColor;
 
 		float _MainTexAlpha;
+		float _MaskTexAlpha;
 
 		half4 _RingDistorsionTransforms;
 		half _RingDistorsionSpeed;
@@ -109,7 +111,7 @@
 			o.Albedo = _MainTexColor * (1 - mask) + (_MaskTexColor * mask);
 			//o.Emission = fresnelEmission * _EdgesColor;
 			o.Alpha = _MainTexColor.a * _MainTexAlpha;
-			//o.Alpha = o.Alpha * (((1 - _MaskTexColor) + (_MaskTexColor)).a * _MaskTexAlpha);
+			o.Alpha = o.Alpha + mask.a * (((1 - mask.a) + (mask.a)) * _MaskTexAlpha);
         }
         ENDCG
     }
