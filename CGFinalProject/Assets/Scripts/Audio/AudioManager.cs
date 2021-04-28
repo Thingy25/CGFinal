@@ -37,4 +37,16 @@ public class AudioManager : MonoBehaviour
         }
 
     }
+
+    public void Stop(string _nombre, GameObject _gameObject)
+    {
+        foreach (Sounds s in sonidos)
+        {
+            if (s.nombre == _nombre)
+            {
+                s.fuente.Stop();
+            }
+        }
+
+    }
 }

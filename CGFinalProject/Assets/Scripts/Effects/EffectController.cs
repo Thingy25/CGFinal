@@ -43,18 +43,20 @@ public class EffectController : MonoBehaviour
     }
 
     void Update() {
+
         if (t >= effectDuration) {
             if (Input.GetButtonDown("Fire1")) {
                 anim?.SetBool("Animation", true);
                 activeEffectObject?.SetActive(true);
                 t = 0;
+                FindObjectOfType<AudioManager>().Play("Hola", this.gameObject);
             }
             if (activeEffectObject.activeSelf && t > effectDuration) {
                 activeEffectObject?.SetActive(true);
                 anim?.SetBool("Animation", false);
             }
         }
-        t += Time.deltaTime;
-        
+
+        t += Time.deltaTime;        
     }
 }
