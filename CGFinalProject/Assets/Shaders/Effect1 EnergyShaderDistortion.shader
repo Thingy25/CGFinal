@@ -110,8 +110,10 @@
 
 			o.Albedo = _MainTexColor * (1 - mask) + (_MaskTexColor * mask);
 			//o.Emission = fresnelEmission * _EdgesColor;
-			o.Alpha = _MainTexColor.a * _MainTexAlpha;
-			o.Alpha = o.Alpha + mask.a * (((1 - mask.a) + (mask.a)) * _MaskTexAlpha);
+
+			float alpha = _MainTexColor.a * _MainTexAlpha + (mask.rgb * _MaskTexAlpha * 2);
+
+			o.Alpha =  saturate(alpha);
         }
         ENDCG
     }
