@@ -161,8 +161,8 @@ Light:
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NormalBias: 0
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -5041,7 +5041,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230618223
 GameObject:
@@ -5102,10 +5102,10 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 10
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -9850,7 +9850,7 @@ Transform:
   m_GameObject: {fileID: 230618223}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.020000001, z: 0}
-  m_LocalScale: {x: 10.717, y: 10.717, z: 10.717}
+  m_LocalScale: {x: 2.5371425, y: 2.5371425, z: 2.5371425}
   m_Children: []
   m_Father: {fileID: 3831184596831432224}
   m_RootOrder: 1
@@ -53360,7 +53360,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0b180046b7f094845a77b0161af5e1ff,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b180046b7f094845a77b0161af5e1ff,
         type: 3}
@@ -53434,7 +53434,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3816ceaa8ac1fb844b2e24276d56db26,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3816ceaa8ac1fb844b2e24276d56db26,
         type: 3}
