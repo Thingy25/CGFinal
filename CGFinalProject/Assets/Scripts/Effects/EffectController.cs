@@ -5,8 +5,8 @@ using UnityEngine;
 public class EffectController : MonoBehaviour
 {
     [SerializeField] Animator anim;
-    [SerializeField] GameObject psObj1;
-    [SerializeField] GameObject psObj2;
+    [SerializeField] GameObject psObj1; //Escudo
+    [SerializeField] GameObject psObj2; //Flecha
 
     GameObject activeEffectObject;
 
@@ -18,7 +18,7 @@ public class EffectController : MonoBehaviour
     
 
     void Start() {  
-        anim = null; //Placeholder
+        //anim = null; //Placeholder
         if (!activeEffectObject) activeEffectObject = psObj1;  
         ps = activeEffectObject?.GetComponent<ParticleSystem>();
         effectDuration = ps.main.duration + ps.main.startLifetimeMultiplier;
@@ -43,13 +43,14 @@ public class EffectController : MonoBehaviour
     }
 
     void Update() {
-
+        if (Input.GetButtonDown("Fire1")) {
+                anim?.SetBool("Animation", true);}
         if (t >= effectDuration) {
             if (Input.GetButtonDown("Fire1")) {
                 anim?.SetBool("Animation", true);
                 activeEffectObject?.SetActive(true);
                 t = 0;
-                FindObjectOfType<AudioManager>().Play("Hola", this.gameObject);
+                //FindObjectOfType<AudioManager>().Play("Hola", this.gameObject); Wtf is this?
             }
             if (activeEffectObject.activeSelf && t > effectDuration) {
                 activeEffectObject?.SetActive(true);
