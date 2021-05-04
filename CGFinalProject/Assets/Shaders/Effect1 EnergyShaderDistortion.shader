@@ -7,10 +7,13 @@
         [HDR] _MainTexColor ("Main Texture Color", Color) = (1,1,1,1)
         [HDR] _MaskTexColor ("Mask Texture Color", Color) = (1,1,1,1)
 
+		_TilingSize("Tiling Size", Range(0,0.5)) = 0
+		_TimeNumber("Time", Range(0,1)) = 0
+
 		_MainTexAlpha("Main Texture Alpha", Range(0,1)) = 0
 		_MaskTexAlpha("Mask Texture Alpha", Range(0,1)) = 0
 
-		_RingDistorsionTransforms("Ring Distorsion Transforms (Speed/Scale)", Vector) = (0,0,1,1)
+		_RingDistorsionTransforms("Ring Distorsion Transforms (Speed/Scale)", Vector) = (0,1,1,1)
 		_RingDistorsionSpeed("Ring Distorsion Speed", Float) = 0
     }
     SubShader
@@ -48,6 +51,9 @@
 		fixed4 _MainTexColor;
 		fixed4 _MaskTexColor;
 
+		float _TilingSize;
+		float _TimeNumber;
+
 		float _MainTexAlpha;
 		float _MaskTexAlpha;
 
@@ -82,9 +88,9 @@
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
 
-			half2 tb = tex2D(_MaskTex, IN.worldPos.xz * _RingDistorsionTransforms.zw - _Time.x * _RingDistorsionTransforms.xz).xy * abs(IN.worldNormal.y);
-			half2 lr = tex2D(_MaskTex, IN.worldPos.yz * _RingDistorsionTransforms.zw - _Time.x * _RingDistorsionTransforms.yz).xy * abs(IN.worldNormal.x);
-			half2 fb = tex2D(_MaskTex, IN.worldPos.xy * _RingDistorsionTransforms.zw - _Time.x * _RingDistorsionTransforms.xy).xy * abs(IN.worldNormal.z);
+			half2 tb = tex2D(_MaskTex, IN.worldPos.xz * _RingDistorsionTransforms.zw - (_Time.y * _TimeNumber) * _RingDistorsionTransforms.xz).xy * abs(IN.worldNormal.y);
+			half2 lr = tex2D(_MaskTex, IN.worldPos.yz * _RingDistorsionTransforms.zw - (_Time.y * _TimeNumber) * _RingDistorsionTransforms.yz).xy * abs(IN.worldNormal.x);
+			half2 fb = tex2D(_MaskTex, IN.worldPos.xy * _RingDistorsionTransforms.zw - (_Time.y * _TimeNumber) * _RingDistorsionTransforms.xy).xy * abs(IN.worldNormal.z);
 
 			//Mirar como sacar el localvertexposition en el primer worldpos y en el segundo mirar el normallocalspace
 
@@ -93,8 +99,8 @@
 			half2 outputUVs = saturate(tb + lr + fb);
 
 
-			fixed4 mask = tex2D(_MaskTex, outputUVs - (_Time.x * _RingDistorsionSpeed));
-			//fixed4 mask = tex2D(_MaskTex, IN.uv_MainTex + outputUVs * 0.13);
+			//fixed4 mask = tex2D(_MaskTex, outputUVs - (_Time.x * _RingDistorsionSpeed));
+			fixed4 mask = tex2D(_MaskTex, IN.uv_MainTex + outputUVs * _TilingSize);
 
 			//fixed4 lr = tex2D(_MaskTex, MoveTextures(IN.worldPos.yz, _SpeedX, _SpeedY) * _TilingSize);
 			//fixed4 fb = tex2D(_MaskTex, MoveTextures(IN.worldPos.xy, _SpeedX, -_SpeedY) * _TilingSize);
@@ -107,6 +113,8 @@
 
 			float fresnelOutput = CalculateEdges(IN);
 			float fresnelEmission = smoothstep(_SmoothnessEmission, 1 - _SmoothnessEmission, fresnelOutput + _EmissionFactor);*/
+
+			//o.Albedo = mask;
 
 			o.Albedo = _MainTexColor * (1 - mask) + (_MaskTexColor * mask);
 			//o.Emission = fresnelEmission * _EdgesColor;
@@ -123,14 +131,13 @@
 			float yOriginal = v.vertex.y;
 			float z = v.vertex.z;
 
-			float2 uv = v.texcoord.xy;
-			float4 mask = tex2Dlod(_MaskTex, float4(uv, 0, 0));
+			float4 mask = tex2Dlod(_MaskTex, float4(v.texcoord.xy, 0, 0));
 
 			float yModificado = sin(2 * x);
 
 			float y = lerp(yOriginal, yModificado, mask.r);
 
-			v.vertex.xyz = float3(x, y, z);
+			v.vertex.xyz += float3(x, yModificado, z);
 			v.normal = normalize(float3(v.normal.x, v.normal.y, v.normal.z));
 		}
         ENDCG

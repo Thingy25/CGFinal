@@ -2,9 +2,11 @@
 {
     Properties
     {
-        _Color ("Color", Color) = (1,1,1,1)
+        [HDR] _Color ("Color", Color) = (1,1,1,1)
+        [HDR] _EdgesColor ("Edges Color", Color) = (1,1,1,1)
 		_MainTexAlpha("Main Texture Alpha", Range(0,1)) = 0
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
+		_EdgeStrength ("Edge Strength", Float) = 1
+		_EdgeIntensity ("Edge Intensity", Float) = 1
     }
     SubShader
     {
@@ -12,6 +14,7 @@
 				"IgnoreProjector" = "True"
 				"RenderType" = "TransparentCutout"  
 		}
+		Cull Off
 
         CGPROGRAM
         #pragma surface surf Standard fullforwardshadows alpha : fade
@@ -20,19 +23,30 @@
         struct Input
         {
             float2 uv_MainTex;
+			float4 screenPos;
+			float eyeDepth;
         };
 
         fixed4 _Color;
+        fixed4 _EdgesColor;
 		float _MainTexAlpha;
-        sampler2D _MainTex;
+		sampler2D_float _CameraDepthTexture;
+		float _EdgeStrength;
+		float _EdgeIntensity;
 
         UNITY_INSTANCING_BUFFER_START(Props)
         UNITY_INSTANCING_BUFFER_END(Props)
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            fixed4 mainTex = tex2D (_MainTex, IN.uv_MainTex);
-            o.Albedo = mainTex * _Color;
+			float depth = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(IN.screenPos)));
+			float4 edges = (_EdgeStrength * (depth - IN.screenPos.w));
+			edges = saturate(edges);
+			edges = 1 - edges;
+			edges *= _EdgeIntensity;
+
+			o.Albedo = _Color;
+            o.Emission = edges * _EdgesColor;
             o.Alpha = _Color.a * _MainTexAlpha;
         }
         ENDCG

@@ -7,6 +7,8 @@
         [HDR] _MainTexColor ("Main Texture Color", Color) = (1,1,1,1)
         [HDR] _MaskTexColor ("Mask Texture Color", Color) = (1,1,1,1)
 
+		_TilingSize("Mask Texture Size", Range(0,10)) = 0.5
+
 		_MainTexAlpha("Main Texture Alpha", Range(0,1)) = 0
 		_MaskTexAlpha("Mask Texture Alpha", Range(0,1)) = 0
 
@@ -51,6 +53,8 @@
 		fixed4 _MainTexColor;
 		fixed4 _MaskTexColor;
 
+		float _TilingSize;
+
 		float _MainTexAlpha;
 		float _MaskTexAlpha;
 
@@ -87,7 +91,7 @@
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-			float3 mask = tex2D(_MaskTex, MoveTextures(IN.uv_MaskTex, _SpeedX, _SpeedY));
+			/*float3 mask = tex2D(_MaskTex, (MoveTextures(IN.uv_MaskTex, _SpeedX, _SpeedY) * _TilingSize));*/
 
 			//half2 tb = tex2D(_MaskTex, IN.worldPos.xz * _RingDistorsionTransforms.zw - _Time.x * _RingDistorsionTransforms.xz).xy * abs(IN.worldNormal.y); //Este es el que está en uso
 			//half2 lr = tex2D(_MaskTex, IN.worldPos.yz * _RingDistorsionTransforms.zw - _Time.x * _RingDistorsionTransforms.yz).xy * abs(IN.worldNormal.x); //Este es el que está en uso
@@ -114,12 +118,12 @@
 
 			float fresnelOutput = CalculateEdges(IN);
 			float fresnelEmission = smoothstep(_SmoothnessEmission, 1 - _SmoothnessEmission, fresnelOutput + _EmissionFactor);*/
-
-			o.Albedo = _MainTexColor * (1 - mask) + (_MaskTexColor * mask);
 			//o.Emission = fresnelEmission * _EdgesColor;
 
-			float alpha = _MainTexColor.a * _MainTexAlpha + (mask.rgb * _MaskTexAlpha * 2);
+			float3 mask = tex2D(_MaskTex, (MoveTextures(IN.uv_MaskTex, _SpeedX, _SpeedY) * _TilingSize));
+			o.Albedo = _MainTexColor * (1 - mask) + (_MaskTexColor * mask);
 
+			float alpha = _MainTexColor.a * _MainTexAlpha + (mask.rgb * _MaskTexAlpha * 2);
 			o.Alpha =  saturate(alpha);
         }
 

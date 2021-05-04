@@ -60,10 +60,12 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _EdgeIntensity: 0.5
+    - _EdgeStrength: 2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MainTexAlpha: 0.25
+    - _MainTexAlpha: 0.18
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -74,5 +76,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.4575472, g: 0.8008344, b: 1, a: 1}
+    - _Color: {r: 1.1220499, g: 2.372334, b: 3.061593, a: 1}
+    - _EdgesColor: {r: 0, g: 0.46624565, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
