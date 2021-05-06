@@ -4,60 +4,75 @@ using UnityEngine;
 
 public class EffectController : MonoBehaviour
 {
-    [SerializeField] Animator anim;
-    [SerializeField] GameObject psObj1; //Escudo
-    [SerializeField] GameObject psObj2; //Flecha
+    static EffectController instance;
+    [SerializeField] GameObject shieldObj; //Escudo
+    [SerializeField] GameObject arrowObj; //Flecha
 
     GameObject activeEffectObject;
-
+    Animator anim;
     ParticleSystem ps;
+    [SerializeField] List<ParticleSystem> subsystems = new List<ParticleSystem>();
 
     float t;
-    float effectDuration;
+    float animLength;
+    float effectDuration; 
+    float speedMultiplier = 1f;
     bool isActive;
-    
+
+    public static EffectController Instance { get => instance;}
+    public float SpeedMultiplier { get => speedMultiplier; set => speedMultiplier = value; }
+
+    private void Awake() {
+        if (instance == null) instance = this;
+    }
 
     void Start() {  
-        //anim = null; //Placeholder
-        if (!activeEffectObject) activeEffectObject = psObj1;  
+        anim = GetComponent<Animator>();
+        if (!activeEffectObject) activeEffectObject = shieldObj;  
         ps = activeEffectObject?.GetComponent<ParticleSystem>();
         effectDuration = ps.main.duration + ps.main.startLifetimeMultiplier;
         t = effectDuration;
+        GetSubsystems();
     }
 
-    void ResetValues() {
-        ps = activeEffectObject?.GetComponent<ParticleSystem>();
-        effectDuration = ps.main.duration + ps.main.startLifetimeMultiplier;
-        t = effectDuration;
-    } 
-
-    public void SetActiveEffect(int effectIndex) {
-        switch (effectIndex)
+    public void PlayEffect(int effect) {
+        switch (effect)
         {
-            case 0:
-            activeEffectObject = psObj1; break;
-            case 1:             
-            activeEffectObject = psObj2; break;
+            case 0: //Escudo
+            anim?.SetTrigger("ShieldAnimation");
+            Invoke("GetAnimationTime", 0.2f);
+            //anim?.SetBool("ShieldAnimation", true);
+            break;
+            case 1: //Flecha            
+            //anim?.SetBool("ArrowAnimation", true);
+            break;
         }
-        ResetValues();
     }
 
-    void Update() {
-        if (Input.GetButtonDown("Fire1")) {
-                anim?.SetBool("Animation", true);}
-        if (t >= effectDuration) {
-            if (Input.GetButtonDown("Fire1")) {
-                anim?.SetBool("Animation", true);
-                activeEffectObject?.SetActive(true);
-                t = 0;
-                //FindObjectOfType<AudioManager>().Play("Hola", this.gameObject); Wtf is this?
-            }
-            if (activeEffectObject.activeSelf && t > effectDuration) {
-                activeEffectObject?.SetActive(true);
-                anim?.SetBool("Animation", false);
-            }
-        }
+    void Shield() {
+        shieldObj.SetActive(true);
+    }
 
-        t += Time.deltaTime;        
+    void GetSubsystems() {
+        ParticleSystem[] systems = shieldObj.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem _ps in systems) {
+            subsystems.Add(_ps);
+        }
+    }
+
+    public void ModifyPSDuration() { //Revisar con Gio
+        foreach (ParticleSystem _ps in subsystems) {
+            var main = _ps.main;
+            float oldDuration = main.duration;
+            main.duration *= speedMultiplier;
+            oldDuration = main.duration;
+        }
+    }
+
+    void GetAnimationTime() {
+        //AnimatorStateInfo animState = anim.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo animState = anim.GetNextAnimatorStateInfo(0);
+        Debug.Log(animState.length);
+        animLength = animState.length;
     }
 }

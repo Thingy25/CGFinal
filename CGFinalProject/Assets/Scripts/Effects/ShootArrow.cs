@@ -8,6 +8,9 @@ public class ShootArrow : MonoBehaviour
     [SerializeField] float arrowForce;
     [SerializeField] Transform shootPosition;
 
+    float cooldown = 5f;
+    float t = 0;
+
     Rigidbody rb;
 
     public void Shoot() {
@@ -18,6 +21,10 @@ public class ShootArrow : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKey(KeyCode.Space)) Shoot(); //Placeholder, replace with UI button
+        if (Input.GetKey(KeyCode.Space) && t > cooldown) {
+            Shoot(); //Placeholder, replace with UI button
+            t = 0; 
+        } 
+        t+= Time.deltaTime;
     }
 }

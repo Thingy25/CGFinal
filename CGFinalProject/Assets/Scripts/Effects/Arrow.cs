@@ -8,6 +8,8 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         Debug.Log("Activating ps");
-        //particleSystemObj.SetActive(true); //Check how the particle system will work and change this accordingly
+
+        Instantiate(particleSystemObj, other.transform.position, particleSystemObj.transform.rotation);
+        Destroy(gameObject);
     }
 }
