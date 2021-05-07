@@ -33,7 +33,7 @@
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows alpha : fade vertex : vert
+        #pragma surface surf Standard fullforwardshadows vertex:vert alpha:fade 
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
@@ -130,16 +130,30 @@
 			float x = v.vertex.x;
 			float yOriginal = v.vertex.y;
 			float z = v.vertex.z;
+			float2 uv = v.texcoord.xy + _Time.y * _TimeNumber;
 
-			float4 mask = tex2Dlod(_MaskTex, float4(v.texcoord.xy, 0, 0));
+			float4 mask = tex2Dlod(_MaskTex, float4(uv, 0, 0));
 
-			float yModificado = sin(2 * x);
+			float yModificado = yOriginal + sin(0.5 * x) * 0.2;
 
 			float y = lerp(yOriginal, yModificado, mask.r);
 
-			v.vertex.xyz += float3(x, yModificado, z);
+			v.vertex.xyz = float3(x, y, z);
 			v.normal = normalize(float3(v.normal.x, v.normal.y, v.normal.z));
 		}
+
+		//void vert(inout appdata_full v, out Input IN) {
+		//	UNITY_INITIALIZE_OUTPUT(Input, IN);
+
+		//	float x = v.vertex.x;
+		//	float y = v.vertex.y;
+		//	float z = v.vertex.z;
+
+		//	y = 1 * sin((x * 1) + _Time.y);
+
+		//	v.vertex.xyz = float3(x, y, z);
+		//	v.normal = normalize(float3(v.normal.x, v.normal.y, v.normal.z));
+		//}
         ENDCG
     }
     FallBack "Diffuse"
