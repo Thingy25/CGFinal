@@ -9,6 +9,7 @@ public class EffectController : MonoBehaviour
     [SerializeField] GameObject arrowObj; //Flecha
 
     GameObject activeEffectObject;
+    Renderer shieldRenderer;
     Animator anim;
     ParticleSystem ps;
     [SerializeField] List<ParticleSystem> pSystems = new List<ParticleSystem>();
@@ -21,6 +22,8 @@ public class EffectController : MonoBehaviour
 
     public static EffectController Instance { get => instance;}
     public float SpeedMultiplier { get => speedMultiplier; set => speedMultiplier = value; }
+    public Renderer ShieldRenderer { get => shieldRenderer; }
+
 
     private void Awake() {
         if (instance == null) instance = this;
@@ -85,5 +88,6 @@ public class EffectController : MonoBehaviour
 
     void SetAnimatorSpeed() {
         anim.speed = speedMultiplier;
+        shieldRenderer.material.SetFloat("_TimeNumber", Mathf.Clamp(speedMultiplier, 0f, 1f));
     }
 }
