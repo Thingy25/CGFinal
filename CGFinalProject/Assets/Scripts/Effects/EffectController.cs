@@ -22,8 +22,6 @@ public class EffectController : MonoBehaviour
 
     public static EffectController Instance { get => instance;}
     public float SpeedMultiplier { get => speedMultiplier; set => speedMultiplier = value; }
-    public Renderer ShieldRenderer { get => shieldRenderer; }
-
 
     private void Awake() {
         if (instance == null) instance = this;
@@ -34,6 +32,7 @@ public class EffectController : MonoBehaviour
         if (!activeEffectObject) activeEffectObject = shieldObj;  
         ps = activeEffectObject?.GetComponent<ParticleSystem>();
         effectDuration = ps.main.duration + ps.main.startLifetimeMultiplier;
+        shieldRenderer = shieldObj.GetComponent<Renderer>();
         t = effectDuration;
         GetSubsystems();
     }
