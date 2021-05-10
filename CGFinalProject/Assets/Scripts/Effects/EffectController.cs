@@ -11,7 +11,7 @@ public class EffectController : MonoBehaviour
     GameObject activeEffectObject;
     Animator anim;
     ParticleSystem ps;
-    [SerializeField] List<ParticleSystem> subsystems = new List<ParticleSystem>();
+    [SerializeField] List<ParticleSystem> pSystems = new List<ParticleSystem>();
 
     float t;
     float animLength;
@@ -35,16 +35,22 @@ public class EffectController : MonoBehaviour
         GetSubsystems();
     }
 
+    private void Update() {
+        SetAnimatorSpeed();
+    }
+
     public void PlayEffect(int effect) {
         switch (effect)
         {
             case 0: //Escudo
             anim?.SetTrigger("ShieldAnimation");
             Invoke("GetAnimationTime", 0.2f);
-            //anim?.SetBool("ShieldAnimation", true);
+            //To-Do: Cinemachine change camera
             break;
-            case 1: //Flecha            
-            //anim?.SetBool("ArrowAnimation", true);
+            case 1: //Flecha    
+            anim?.SetTrigger("ArrowAnimation");
+            Invoke("GetAnimationTime", 0.2f); 
+            //To-Do: Cinemachine change camera       
             break;
         }
     }
@@ -53,26 +59,31 @@ public class EffectController : MonoBehaviour
         shieldObj.SetActive(true);
     }
 
+    void Arrow() {
+        GetComponent<ShootArrow>().Shoot(); //Agregar parámetro para speed multiplier
+    }
+
     void GetSubsystems() {
         ParticleSystem[] systems = shieldObj.GetComponentsInChildren<ParticleSystem>();
         foreach (ParticleSystem _ps in systems) {
-            subsystems.Add(_ps);
+            pSystems.Add(_ps);
         }
     }
 
     public void ModifyPSDuration() { //Revisar con Gio
-        foreach (ParticleSystem _ps in subsystems) {
+        foreach (ParticleSystem _ps in pSystems) {
             var main = _ps.main;
-            float oldDuration = main.duration;
-            main.duration *= speedMultiplier;
-            oldDuration = main.duration;
+            main.simulationSpeed = speedMultiplier;
         }
     }
 
     void GetAnimationTime() {
-        //AnimatorStateInfo animState = anim.GetCurrentAnimatorStateInfo(0);
-        AnimatorStateInfo animState = anim.GetNextAnimatorStateInfo(0);
+        AnimatorStateInfo animState = anim.GetCurrentAnimatorStateInfo(0);
         Debug.Log(animState.length);
         animLength = animState.length;
+    }
+
+    void SetAnimatorSpeed() {
+        anim.speed = speedMultiplier;
     }
 }

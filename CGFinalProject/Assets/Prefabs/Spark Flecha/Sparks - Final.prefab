@@ -623,11 +623,11 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 6
+    type: 0
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -710,7 +710,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.0001
       mode: 0
       spread: 0
       speed:
@@ -4778,6 +4778,7 @@ GameObject:
   - component: {fileID: 2836415127705743107}
   - component: {fileID: 2836415127705743105}
   - component: {fileID: 2836415127705743104}
+  - component: {fileID: 6461613943311779335}
   m_Layer: 0
   m_Name: Sparks - Final
   m_TagString: Untagged
@@ -4792,14 +4793,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2836415127705743106}
-  m_LocalRotation: {x: -0.49999997, y: -0.5, z: 0.5000002, w: 0.4999999}
+  m_LocalRotation: {x: -0.50000006, y: -0.5, z: 0.50000006, w: 0.5}
   m_LocalPosition: {x: -0.81, y: 1.03, z: 6.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2836415126653323029}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 90.00001}
 --- !u!198 &2836415127705743105
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4808,15 +4809,15 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2836415127705743106}
   serializedVersion: 6
-  lengthInSec: 10
+  lengthInSec: 5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 0
   useRigidbodyForVelocity: 1
@@ -5377,7 +5378,7 @@ ParticleSystem:
     angle: 28.955338
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0
+    radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -9512,13 +9513,13 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
-  m_VelocityScale: 0.15
-  m_LengthScale: 1
+  m_VelocityScale: 0.05
+  m_LengthScale: 0.01
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
@@ -9535,3 +9536,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &6461613943311779335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2836415127705743106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b71dad9e5a3f1d45bf1152367e85437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

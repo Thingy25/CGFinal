@@ -7,8 +7,6 @@ public class Arrow : MonoBehaviour
     [SerializeField] GameObject particleSystemObj;
 
     private void OnCollisionEnter(Collision other) {
-        Debug.Log("Activating ps");
-
         Instantiate(particleSystemObj, other.transform.position, particleSystemObj.transform.rotation);
         Destroy(gameObject);
     }
