@@ -7,14 +7,13 @@
         [HDR] _MainTexColor ("Main Texture Color", Color) = (1,1,1,1)
         [HDR] _MaskTexColor ("Mask Texture Color", Color) = (1,1,1,1)
 
-		_TilingSize("Tiling Size", Range(0,0.5)) = 0
-		_TimeNumber("Time", Range(0,1)) = 0
+		_TilingSize("Tiling Size", Range(0,0.5)) = 0.1
+		_TimeNumber("Time", Range(0,1)) = 0.26
 
-		_MainTexAlpha("Main Texture Alpha", Range(0,1)) = 0
-		_MaskTexAlpha("Mask Texture Alpha", Range(0,1)) = 0
+		_MainTexAlpha("Main Texture Alpha", Range(0,1)) = 0.05
+		_MaskTexAlpha("Mask Texture Alpha", Range(0,1)) = 0.2
 
-		_RingDistorsionTransforms("Ring Distorsion Transforms (Speed/Scale)", Vector) = (0,1,1,1)
-		_RingDistorsionSpeed("Ring Distorsion Speed", Float) = 0
+		_RingDistorsionTransforms("Ring Distorsion Transforms (Speed/Scale)", Vector) = (0,0.5,0.5,0.5)
     }
     SubShader
     {
@@ -58,7 +57,6 @@
 		float _MaskTexAlpha;
 
 		half4 _RingDistorsionTransforms;
-		half _RingDistorsionSpeed;
         
 		inline float2 MoveTextures(float2 uvs, float speedx, float speedy)
 		{
