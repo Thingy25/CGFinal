@@ -40,7 +40,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2836415126653323028}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 1
@@ -4809,7 +4809,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2836415127705743106}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 3
   cullingMode: 3
@@ -4883,8 +4883,8 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 8
+      minMaxState: 0
+      scalar: 5
       minScalar: 8
       maxCurve:
         serializedVersion: 2
@@ -5320,8 +5320,8 @@ ParticleSystem:
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
-      minMaxState: 1
-      scalar: 1
+      minMaxState: 0
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6720,7 +6720,7 @@ ParticleSystem:
     radial:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 15
+      scalar: 25
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6744,8 +6744,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.23985966
-          value: -0.92608875
+          time: 0.273193
+          value: -0.558939
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -6753,8 +6753,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.2424755
-          value: -0.9257821
+          time: 0.27580884
+          value: -0.5586324
           inSlope: -0.09429179
           outSlope: -0.09429179
           tangentMode: 0
@@ -6762,7 +6762,7 @@ ParticleSystem:
           inWeight: 1
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.33211488
+          time: 0.36847854
           value: 1
           inSlope: 0
           outSlope: 0
@@ -9548,3 +9548,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b71dad9e5a3f1d45bf1152367e85437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systems: []
