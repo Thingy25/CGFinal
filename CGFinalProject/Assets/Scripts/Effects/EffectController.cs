@@ -87,6 +87,6 @@ public class EffectController : MonoBehaviour
 
     void SetAnimatorSpeed() {
         anim.speed = speedMultiplier;
-        shieldRenderer.material.SetFloat("_TimeNumber", Mathf.Clamp(speedMultiplier, 0f, 1f));
+        shieldRenderer.material.SetFloat("_TimeNumber", Mathf.Clamp(speedMultiplier, 1f, 5f));
     }
 }

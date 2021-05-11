@@ -4,23 +4,10 @@ using UnityEngine;
 
 public class ShadersController : MonoBehaviour
 {
-    [SerializeField] Renderer renderer;
+    [SerializeField] Renderer renderer, shieldRenderer;
 
-    [SerializeField] [ColorUsage(true, true)] Color defaultColor;
-    [SerializeField] [ColorUsage(true, true)] Color cyan;
-    [SerializeField] [ColorUsage(true, true)] Color blue;
-    [SerializeField] [ColorUsage(true, true)] Color green;
-    [SerializeField] [ColorUsage(true, true)] Color purple;
-    [SerializeField] [ColorUsage(true, true)] Color red;
-    Color color;
-
-    [SerializeField] [ColorUsage(true, true)] Color defaultColor2;
-    [SerializeField] [ColorUsage(true, true)] Color cyan2;
-    [SerializeField] [ColorUsage(true, true)] Color blue2;
-    [SerializeField] [ColorUsage(true, true)] Color green2;
-    [SerializeField] [ColorUsage(true, true)] Color purple2;
-    [SerializeField] [ColorUsage(true, true)] Color red2;
-    Color color2;
+    [SerializeField] [ColorUsage(true, true)] Color defaultColor, cyan, blue, green, purple, red;
+    Color color, color2;
 
     public void SetDefaultColor()
     {

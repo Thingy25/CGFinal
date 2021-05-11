@@ -18144,6 +18144,16 @@ PrefabInstance:
       propertyPath: CustomDataModule.enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3831184597033097476, guid: 0faded994a07b3f49804a2f21709d59b,
+        type: 3}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831184597033097476, guid: 0faded994a07b3f49804a2f21709d59b,
+        type: 3}
+      propertyPath: ColorModule.gradient.minMaxState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3831184597033097478, guid: 0faded994a07b3f49804a2f21709d59b,
         type: 3}
       propertyPath: m_Name
@@ -18152,7 +18162,7 @@ PrefabInstance:
     - target: {fileID: 3831184597033097478, guid: 0faded994a07b3f49804a2f21709d59b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0faded994a07b3f49804a2f21709d59b, type: 3}
