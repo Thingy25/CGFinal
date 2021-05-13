@@ -4843,6 +4843,7 @@ Transform:
   m_Children:
   - {fileID: 3831184597349447772}
   - {fileID: 230618226}
+  - {fileID: 3304536620533842836}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8643,12 +8644,12 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 0
-    ratio: 0
-    light: {fileID: 0}
-    randomDistribution: 1
+    enabled: 1
+    ratio: 1
+    light: {fileID: 6280004908706830979}
+    randomDistribution: 0
     color: 1
-    range: 1
+    range: 0
     intensity: 1
     rangeCurve:
       serializedVersion: 2
@@ -14456,3 +14457,94 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1001 &3643219282276710606
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3831184597033097475}
+    m_Modifications:
+    - target: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313982598116365010, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_Name
+      value: ShieldLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325209880994439757, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 4.764e-42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325209880994439757, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -2.3125
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e035e89742abec49868c8dbedfaab50, type: 3}
+--- !u!4 &3304536620533842836 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2257220604128426842, guid: 7e035e89742abec49868c8dbedfaab50,
+    type: 3}
+  m_PrefabInstance: {fileID: 3643219282276710606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &6280004908706830979 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 7325209880994439757, guid: 7e035e89742abec49868c8dbedfaab50,
+    type: 3}
+  m_PrefabInstance: {fileID: 3643219282276710606}
+  m_PrefabAsset: {fileID: 0}
