@@ -4,8 +4,8 @@
     {
         _MaskTex ("Mask Texture", 2D) = "white" {}
 
-        /*[HDR]*/ _MainTexColor ("Main Texture Color", Color) = (1,1,1,1)
-        /*[HDR]*/ _MaskTexColor ("Mask Texture Color", Color) = (1,1,1,1)
+        [HDR] _MainTexColor ("Main Texture Color", Color) = (1,1,1,1)
+        [HDR] _MaskTexColor ("Mask Texture Color", Color) = (1,1,1,1)
 
 		_TilingSize("Tiling Size", Range(0,0.5)) = 0.1
 		_TimeNumber("Time", Range(0,1)) = 0.26

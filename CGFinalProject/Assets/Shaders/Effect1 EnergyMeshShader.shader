@@ -3,7 +3,7 @@
     Properties
     {
         [HDR] _MainColor ("Main Texture Color", Color) = (1,1,1,1)
-		[HDR] _EdgesColor("Edges Color", Color) = (1,1,1,1)
+		[HDR] _EdgesColor ("Edges Color", Color) = (1,1,1,1)
 
 		_EmissionFactor("Factor Emission Slider", Range(-1,1)) = 0
 		_SmoothnessEmission("Emission Smoothness", Range(-0.5,0.5)) = 0
