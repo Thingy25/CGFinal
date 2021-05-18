@@ -14524,15 +14524,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShieldLight
       objectReference: {fileID: 0}
+    - target: {fileID: 4313982598116365010, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7325209880994439757, guid: 7e035e89742abec49868c8dbedfaab50,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 4.764e-42
+      value: 6.288662
       objectReference: {fileID: 0}
     - target: {fileID: 7325209880994439757, guid: 7e035e89742abec49868c8dbedfaab50,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -2.3125
+      value: 3.85e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325209880994439757, guid: 7e035e89742abec49868c8dbedfaab50,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 6.36e-43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e035e89742abec49868c8dbedfaab50, type: 3}
