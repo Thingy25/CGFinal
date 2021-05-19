@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CurveController : MonoBehaviour
 {
+    static CurveController instance;
+
     [SerializeField] AnimationCurve curve;
     [SerializeField] float effectDuration;
     [SerializeField] float lightIntensity;
@@ -17,8 +19,9 @@ public class CurveController : MonoBehaviour
     ParticleSystem.LightsModule psLight;
 
     float t = 0;
-    void Start()
+    void Awake()
     {
+        if (instance == null) { instance = this }
         ps = GetComponent<ParticleSystem>();
         psSize = ps.sizeOverLifetime;
         psLight = ps.lights;
