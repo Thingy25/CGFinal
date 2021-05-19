@@ -27,7 +27,6 @@ public class CurveController : MonoBehaviour
         psLight = ps.lights;
     }
 
-    // Update is called once per frame
     void Update()
     {
         curveValue = curve.Evaluate(t / effectDuration);
