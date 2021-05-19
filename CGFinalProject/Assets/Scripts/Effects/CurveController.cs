@@ -21,7 +21,7 @@ public class CurveController : MonoBehaviour
     float t = 0;
     void Awake()
     {
-        if (instance == null) { instance = this }
+        if (instance == null) { instance = this; }
         ps = GetComponent<ParticleSystem>();
         psSize = ps.sizeOverLifetime;
         psLight = ps.lights;
