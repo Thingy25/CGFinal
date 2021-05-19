@@ -8,6 +8,7 @@ public class CurveController : MonoBehaviour
     [SerializeField] float effectDuration;
     [SerializeField] float curveValue;
     [SerializeField] float lightIntensity;
+    [SerializeField] float vol;
 
     [SerializeField] Light light;
     [SerializeField] ParticleSystem ps;
@@ -24,6 +25,14 @@ public class CurveController : MonoBehaviour
     void Update()
     {
         curveValue = curve.Evaluate(t / effectDuration);
+        light.intensity = lightIntensity * curveValue;
+        //Llamar audio.volume = vol * curveValue;
+        psSize.size = curveValue;
         t += Time.deltaTime;
     }
+
+   public void CurveEvaluation()
+   {
+
+   }
 }
