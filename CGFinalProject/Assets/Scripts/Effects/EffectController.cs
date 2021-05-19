@@ -14,11 +14,20 @@ public class EffectController : MonoBehaviour
     ParticleSystem ps;
     [SerializeField] List<ParticleSystem> pSystems = new List<ParticleSystem>();
 
+    [Header("Source")]
+    [SerializeField] public GameObject shieldObje; // Para el Audio
+    [SerializeField] public GameObject shieldObje2; // Para el Audio
+    [SerializeField] public GameObject shieldObje3; // Para el Audio
+    [SerializeField] public GameObject bowObj;
+
     float t;
     float animLength;
-    float effectDuration; 
-    float speedMultiplier = 1f;
+    float effectDuration;
+    public float speedMultiplier = 1f;
     bool isActive;
+
+    AudioSource audiosource;
+    public bool shieldIsActive;
 
     public static EffectController Instance { get => instance;}
     public float SpeedMultiplier { get => speedMultiplier; set => speedMultiplier = value; }
@@ -39,6 +48,14 @@ public class EffectController : MonoBehaviour
 
     private void Update() {
         SetAnimatorSpeed();
+
+        //Restrepito
+        if (shieldIsActive)
+        {
+            AudioManager.Instance?.Play("Escudo Loop", shieldObje3, SpeedMultiplier, 1);
+        }
+        //Si el Escudo esta activo se reproduce el sonido.
+        //Restrepito
     }
 
     public void PlayEffect(int effect) {
@@ -47,18 +64,35 @@ public class EffectController : MonoBehaviour
             case 0: //Escudo
             anim?.SetTrigger("ShieldAnimation");
             Invoke("GetAnimationTime", 0.2f);
+            
             //To-Do: Cinemachine change camera
-            break;
+
+                break;
+
             case 1: //Flecha    
             anim?.SetTrigger("ArrowAnimation");
-            Invoke("GetAnimationTime", 0.2f); 
+            Invoke("GetAnimationTime", 0.2f);            
             //To-Do: Cinemachine change camera       
-            break;
+                break;
         }
     }
 
+    void ShieldActiveSound() //Restrepo
+    {
+        AudioManager.Instance?.Play("Escudo Activar", shieldObje, speedMultiplier, 1);
+        shieldIsActive = true;
+    }//Se Reproduce el sonido del escudo del AudioManager,se activa un Bool para tener encuenta el Loop
+
+    public void ShieldActiveSound2() //Restrepo
+    {
+        AudioManager.Instance?.Play("Escudo Final", shieldObje2, speedMultiplier, 1);
+        AudioManager.Instance?.Stop("Escudo Loop", shieldObje3);
+        shieldIsActive = false;
+    }//Se Reproduce el sonido del escudo del AudioManager,se Desactiva un Bool para tener encuenta el Loop y se desactiva el sonido del loop
+
     void Shield() {
         shieldObj.SetActive(true);
+        Invoke("ShieldActiveSound", 0f ); //Restrepo
     }
 
     void Arrow() {

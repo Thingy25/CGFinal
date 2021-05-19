@@ -6,29 +6,36 @@ using System;
 
 public class AudioManager : MonoBehaviour
 {
+    static AudioManager instance;
+
     public Sounds[] sonidos;
-    GameObject Flecha;
+    public static AudioManager Instance { get => instance; }
+
+
+    public AnimationCurve lacurvita;
+    float curveValue;
+    float effectDuration = 8;
+    float t;
 
     public void Awake()
     {
-        foreach(Sounds s in sonidos)
-        {
-        }
+        if (instance == null) instance = this;        
     }
 
-    public void Play(string _nombre, GameObject _gameObject)
+    /*public void Play(string _nombre, GameObject _gameObject, float _pitchMod)
     {             
         foreach (Sounds s in sonidos)
         {
-            if (s.nombre == _nombre)
+            if (sonidos[i].nombre == _nombre)
             {
                 if( _gameObject.GetComponent<AudioSource>() == null ) {
 
                     s.fuente = _gameObject.AddComponent<AudioSource>();
                     s.fuente.clip = s.clip;
                     s.fuente.volume = s.volume;
-                    s.fuente.pitch = s.pitch;
+                    s.fuente.pitch = _pitchMod;
                     s.fuente.spatialBlend = 1;
+                    s.fuente.playOnAwake = true;
                     s.fuente.Play();
                 }
                 else 
@@ -36,15 +43,52 @@ public class AudioManager : MonoBehaviour
             }
         }
 
+    }*/
+
+    private void Update()
+    {
+        curveValue = lacurvita.Evaluate(t / effectDuration);
+        t += Time.deltaTime;
+    }
+
+
+
+    public void Play(string _nombre, GameObject _gameObject, float _pitchMod, float _volumen)
+    {
+        for (int i = 0; i < sonidos.Length; i++)
+        {
+            if (sonidos[i].nombre == _nombre)
+            {
+                if (_gameObject.GetComponent<AudioSource>() == null)
+                {
+                    Debug.LogError("PASA POR AQUI");
+                    sonidos[i].fuente = _gameObject.AddComponent<AudioSource>();
+                    sonidos[i].fuente.clip = sonidos[i].clip;
+                    sonidos[i].fuente.volume = curveValue;
+                    sonidos[i].fuente.pitch = _pitchMod;
+                    sonidos[i].fuente.spatialBlend = 1;
+                    sonidos[i].fuente.playOnAwake = true;
+                    sonidos[i].fuente.Play();
+                }
+                else
+                    sonidos[i].fuente.clip = sonidos[i].clip;
+                    sonidos[i].fuente.volume = curveValue;
+                    sonidos[i].fuente.pitch = _pitchMod;
+                    sonidos[i].fuente.spatialBlend = 1;
+                    sonidos[i].fuente.playOnAwake = true;
+                    sonidos[i].fuente.Play();
+            }
+        }
+
     }
 
     public void Stop(string _nombre, GameObject _gameObject)
     {
-        foreach (Sounds s in sonidos)
+        for(int i = 0; i < sonidos.Length; i++)
         {
-            if (s.nombre == _nombre)
+            if (sonidos[i].nombre == _nombre)
             {
-                s.fuente.Stop();
+                sonidos[i].fuente.Stop();
             }
         }
 

@@ -9,9 +9,6 @@ public class Sounds
 
     public AudioClip clip;
 
-    public float volume;
-    public float pitch;
-
     [HideInInspector]
     public AudioSource fuente;
 }

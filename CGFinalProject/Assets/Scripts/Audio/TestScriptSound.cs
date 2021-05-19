@@ -20,26 +20,26 @@ public class TestScriptSound : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && state == 0)
+        /*if (Input.GetKeyDown(KeyCode.R) && state == 0)
         {
             Particulas.Play();
-            FindObjectOfType<AudioManager>().Play("Escudo Activar", o1);
+            FindObjectOfType<AudioManager>().Play("Escudo Activar", o1,1);
             t = 0;
             state++;
         }
 
         if(t > 0.9 && state == 1)
         {
-            FindObjectOfType<AudioManager>().Play("Escudo Loop", o2);
+            FindObjectOfType<AudioManager>().Play("Escudo Loop", o2,1);
             state++;
         }
 
         if(t > t2 && state == 2)
         {
             FindObjectOfType<AudioManager>().Stop("Escudo Loop", o2);
-            FindObjectOfType<AudioManager>().Play("Escudo Final", o3);
+            FindObjectOfType<AudioManager>().Play("Escudo Final", o3,1);
             state++;
         }
-        if (state != 0) t++;
+        if (state != 0) t++;*/
     }
 }
