@@ -8,6 +8,12 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         Instantiate(particleSystemObj, other.transform.position, particleSystemObj.transform.rotation);
+
+        /*Restrepo*/
+        //AudioManager.Instance?.Play("Arrow Impact", particleSystemObj, 1);
+        //Cuando impacta la flecha se reproduce un Audio llamado "Arrow Impact" del AudioManager
+        /*Restrepo*/
+
         Destroy(gameObject);
     }
 }
