@@ -412,6 +412,67 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 8128719205631481564, guid: 47347c612f36c7242abdd7a8dc8b8a5b,
+        type: 3}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: LightsModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: LightsModule.intensityCurve.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: LightsModule.intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: LightsModule.color
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 0.7877358
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.95824605
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: LightsModule.randomDistribution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
+        type: 3}
+      propertyPath: LightsModule.range
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9167321085881125245, guid: 446a87b97f1429f48850db470af8ef6f,
         type: 3}
       propertyPath: m_Name
