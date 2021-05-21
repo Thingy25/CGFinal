@@ -11,16 +11,7 @@ public class ShadersController : MonoBehaviour
 
     private void Start()
     {
-        SetDefaultColor();
-    }
-
-    public void SetDefaultColor()
-    {
-        color = defaultColor;
-
-        renderer.material.SetColor("_MainTexColor", color);
-        renderer.material.SetColor("_MaskTexColor", color);
-        shieldRenderer.material.SetColor("_EdgesColor", color);
+        SetCyanColor();
     }
 
     public void SetCyanColor()
@@ -30,6 +21,10 @@ public class ShadersController : MonoBehaviour
         renderer.material.SetColor("_MainTexColor", color);
         renderer.material.SetColor("_MaskTexColor", color);
         shieldRenderer.material.SetColor("_EdgesColor", color);
+
+        //Línea para el material del shader de la flecha cuando se instancie
+        //arrowRenderer.material.SetColor("_Color", color);
+        //arrowRenderer.material.SetColor("_EdgesColor", color);
     }
 
     public void SetBlueColor()
@@ -39,6 +34,10 @@ public class ShadersController : MonoBehaviour
         renderer.material.SetColor("_MainTexColor", color);
         renderer.material.SetColor("_MaskTexColor", color);
         shieldRenderer.material.SetColor("_EdgesColor", color);
+
+        //Línea para el material del shader de la flecha cuando se instancie
+        //arrowRenderer.material.SetColor("_Color", color);
+        //arrowRenderer.material.SetColor("_EdgesColor", color);
     }
 
     public void SetPurpleColor()
@@ -48,5 +47,9 @@ public class ShadersController : MonoBehaviour
         renderer.material.SetColor("_MainTexColor", color);
         renderer.material.SetColor("_MaskTexColor", color);
         shieldRenderer.material.SetColor("_EdgesColor", color);
+
+        //Línea para el material del shader de la flecha cuando se instancie
+        //arrowRenderer.material.SetColor("_Color", color);
+        //arrowRenderer.material.SetColor("_EdgesColor", color);
     }
 }

@@ -8,7 +8,7 @@
         [HDR] _MaskTexColor ("Mask Texture Color", Color) = (1,1,1,1)
 
 		_TilingSize("Tiling Size", Range(0,0.5)) = 0.1
-		_TimeNumber("Time", Range(0,1)) = 0.26
+		_TimeNumber("Time", Range(0.5,1.5)) = 0.26
 
 		_MainTexAlpha("Main Texture Alpha", Range(0,1)) = 0.05
 		_MaskTexAlpha("Mask Texture Alpha", Range(0,1)) = 0.2
