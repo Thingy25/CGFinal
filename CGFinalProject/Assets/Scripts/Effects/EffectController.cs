@@ -8,6 +8,8 @@ public class EffectController : MonoBehaviour
     [SerializeField] GameObject shieldObj; //Escudo
     [SerializeField] GameObject arrowObj; //Flecha
 
+    [SerializeField] ParticleSystem arrowRings; //Rings particles
+
     GameObject activeEffectObject;
     Renderer shieldRenderer;
     Animator anim;
@@ -71,7 +73,8 @@ public class EffectController : MonoBehaviour
 
             case 1: //Flecha    
             anim?.SetTrigger("ArrowAnimation");
-            Invoke("GetAnimationTime", 0.2f);            
+            Invoke("GetAnimationTime", 0.2f);
+            arrowRings.Play();
             //To-Do: Cinemachine change camera       
                 break;
         }
