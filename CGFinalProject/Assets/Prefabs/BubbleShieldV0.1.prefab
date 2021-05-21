@@ -4823,6 +4823,7 @@ GameObject:
   - component: {fileID: 3831184597033097475}
   - component: {fileID: 3831184597033097476}
   - component: {fileID: 3831184597033097477}
+  - component: {fileID: 2879684280837938115}
   m_Layer: 0
   m_Name: BubbleShieldV0.1
   m_TagString: Untagged
@@ -9636,6 +9637,84 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2879684280837938115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3831184597033097478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61a01392d459f248a3c1ad6f0cc8849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve1:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.6
+      inSlope: 0.13076994
+      outSlope: 0
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.97
+      value: 0.6
+      inSlope: -0
+      outSlope: 13.333345
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 13.333345
+      outSlope: 13.333345
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  curve2:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0.30593246
+      outSlope: 0.30593246
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.080756016
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.6276473
+      outSlope: 0.6276473
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08247423
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  effectDuration: 8
+  lightIntensity: 0
+  vol: 0
+  curve1Value: 0
+  curve2Value: 0
+  effectType: 0
+  ps1: {fileID: 3831184597033097476}
+  ps2: {fileID: 3831184597349447770}
+  ps3: {fileID: 230618225}
 --- !u!1 &3831184597349447773
 GameObject:
   m_ObjectHideFlags: 0
