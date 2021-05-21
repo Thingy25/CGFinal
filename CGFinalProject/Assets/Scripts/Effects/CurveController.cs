@@ -57,6 +57,10 @@ public class CurveController : MonoBehaviour
 
             //    }
         }
+        if(t>=effectDuration)
+        {
+            t = 0;
+        }
         curve1Value = curve1.Evaluate(t / effectDuration);
         curve2Value = curve2.Evaluate(t / effectDuration);
         //light.intensity = lightIntensity * curveValue;
@@ -66,8 +70,12 @@ public class CurveController : MonoBehaviour
         t += Time.deltaTime;
     }
 
-   public void ShieldEvaluation()
+   public void EvaluateCurve()
    {
+        if (t >= effectDuration)
+        {
+            t = 0;
+        }
         curve1Value = curve1.Evaluate(t / effectDuration);
         //light.intensity = lightIntensity * curveValue;
         //Llamar audio.volume = vol * curveValue;
