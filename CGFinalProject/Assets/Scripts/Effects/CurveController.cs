@@ -18,13 +18,13 @@ public class CurveController : MonoBehaviour
     //public EffectTypes effectType;
 
     //Light light;
-    ParticleSystem ps;
+    //ParticleSystem ps;
 
-    [SerializeField] ParticleSystem ps1;
-    [SerializeField] ParticleSystem ps2;
-    [SerializeField] ParticleSystem ps3;
+    [SerializeField] ParticleSystem ps;
+    //[SerializeField] ParticleSystem ps2;
+    //[SerializeField] ParticleSystem ps3;
 
-    ParticleSystem.SizeOverLifetimeModule ps1Size;
+    //ParticleSystem.SizeOverLifetimeModule psSize;
     ParticleSystem.LightsModule psLight;
 
     float t = 0;
@@ -34,8 +34,8 @@ public class CurveController : MonoBehaviour
         //ps = GetComponent<ParticleSystem>();
         //psSize = ps.sizeOverLifetime;
         //psLight = ps.lights;
-        ps1Size = ps1.sizeOverLifetime;
-        psLight = ps1.lights;
+        //psSize = ps.sizeOverLifetime;
+        psLight = ps.lights;
         //ps2Size = ps2.sizeOverLifetime;
         //ps3Size = ps3.sizeOverLifetime;
     }
@@ -50,7 +50,7 @@ public class CurveController : MonoBehaviour
         //curve2Value = curve2.Evaluate(t / effectDuration);
         //light.intensity = lightIntensity * curveValue;
         //Llamar audio.volume = vol * curveValue;
-        ps1Size.size = curve1Value;
+        //psSize.size = curve1Value;
         psLight.rangeMultiplier = curve1Value;
         t += Time.deltaTime;
     }
@@ -64,7 +64,7 @@ public class CurveController : MonoBehaviour
         curve1Value = curve1.Evaluate(t / effectDuration);
         //light.intensity = lightIntensity * curveValue;
         //Llamar audio.volume = vol * curveValue;
-        ps1Size.size = curve1Value;
+        //psSize.size = curve1Value;
         psLight.rangeMultiplier = curve1Value;
         t += Time.deltaTime;
     }
