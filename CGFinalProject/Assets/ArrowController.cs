@@ -11,7 +11,6 @@ public class ArrowController : MonoBehaviour
     }
 
     public void SetSpeed() {
-        Debug.Log("Setting speed");
         foreach (ParticleSystem ps in systems) {
             var main = ps.main;
             main.simulationSpeed = EffectController.Instance.SpeedMultiplier;
