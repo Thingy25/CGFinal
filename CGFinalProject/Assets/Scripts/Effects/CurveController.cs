@@ -51,7 +51,7 @@ public class CurveController : MonoBehaviour
         //light.intensity = lightIntensity * curveValue;
         //Llamar audio.volume = vol * curveValue;
         //psSize.size = curve1Value;
-        psLight.rangeMultiplier = curve1Value;
+        psLight.intensityMultiplier = curve1Value;
         t += Time.deltaTime;
     }
 
