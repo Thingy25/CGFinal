@@ -11,7 +11,7 @@ public class CurveController : MonoBehaviour
     //[SerializeField] AnimationCurve curve2;
     [SerializeField] float effectDuration;
     [SerializeField] float lightIntensity;
-    [SerializeField] float vol;
+    //[SerializeField] float vol;
     public float curve1Value;
     //public float curve2Value;
 
@@ -52,6 +52,7 @@ public class CurveController : MonoBehaviour
         //Llamar audio.volume = vol * curveValue;
         //psSize.size = curve1Value;
         psLight.intensityMultiplier = curve1Value;
+        lightIntensity = psLight.intensityMultiplier;
         t += Time.deltaTime;
     }
 
