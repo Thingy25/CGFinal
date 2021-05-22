@@ -7,7 +7,7 @@ public class Arrow : MonoBehaviour
     [SerializeField] GameObject particleSystemObj;
 
     private void OnCollisionEnter(Collision other) {
-        Instantiate(particleSystemObj, other.transform.position, particleSystemObj.transform.rotation);
+        Instantiate(particleSystemObj, other.transform.position + Vector3.forward * -0.5f, particleSystemObj.transform.rotation);
 
         /*Restrepo*/
         //AudioManager.Instance?.Play("Arrow Impact", particleSystemObj, 1);

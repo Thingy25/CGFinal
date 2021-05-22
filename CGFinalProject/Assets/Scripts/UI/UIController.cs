@@ -1,7 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 using TMPro;
 
 public class UIController : MonoBehaviour
@@ -23,6 +24,7 @@ public class UIController : MonoBehaviour
     [SerializeField] TextMeshProUGUI slider2Value;
     [SerializeField] TextMeshProUGUI slider3Value;
 
+    [SerializeField] CinemachineVirtualCamera arrowCam;
 
     int selectedEffect;
     bool isPlayingEffect;
@@ -48,12 +50,14 @@ public class UIController : MonoBehaviour
             buttonEffect2.interactable = true;
             selectedEffect = effectIndex;
             statusText.text = "Efecto seleccionado: Escudo";
+            arrowCam.gameObject.SetActive(false);
             break;
             case 1:
             buttonEffect2.interactable = false;
             buttonEffect1.interactable = true;
             selectedEffect = effectIndex;
             statusText.text = "Efecto seleccionado: Flecha";
+            arrowCam.gameObject.SetActive(true);
             break;            
             default: break;
         }
@@ -63,19 +67,19 @@ public class UIController : MonoBehaviour
     public void SetSpeed() {
         EffectController.Instance.SpeedMultiplier = speedSlider.value;
         EffectController.Instance.ModifyPSDuration();
-        slider1Value.text = speedSlider.value.ToString("#.00");
+        slider1Value.text = speedSlider.value.ToString("#.0");
     }
 
     public void SetSize() {
         //Implementar cambio de tamaño
         //Llamar alguna función que cambie el tamaño etc etc.
-        slider2Value.text = sizeSlider.value.ToString("#.00");
+        slider2Value.text = sizeSlider.value.ToString("#.0");
     }
 
     public void SetThirdParameter() { //Placeholder name
         //Implementar lo que sea que haga el tercer efecto
         //Llamar alguna función que haga eso, etc
-        slider3Value.text = phSlider.value.ToString("#.00");
+        slider3Value.text = phSlider.value.ToString("#.0");
     }
     
 
