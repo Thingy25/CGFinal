@@ -5475,6 +5475,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3831184597033097476, guid: 0faded994a07b3f49804a2f21709d59b,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831184597033097476, guid: 0faded994a07b3f49804a2f21709d59b,
+        type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3831184597033097478, guid: 0faded994a07b3f49804a2f21709d59b,
         type: 3}
       propertyPath: m_Name
@@ -5484,6 +5494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831184597349447770, guid: 0faded994a07b3f49804a2f21709d59b,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6280004908706830979, guid: 0faded994a07b3f49804a2f21709d59b,
         type: 3}
@@ -7202,6 +7217,7 @@ GameObject:
   - component: {fileID: 919132148472915418}
   - component: {fileID: 919132148472915419}
   - component: {fileID: 919132148472915420}
+  - component: {fileID: 919132148472915421}
   m_Layer: 0
   m_Name: xbot
   m_TagString: Untagged
@@ -7229,7 +7245,6 @@ MonoBehaviour:
   shieldObje2: {fileID: 0}
   shieldObje3: {fileID: 0}
   bowObj: {fileID: 0}
-  speedMultiplier: 1
   shieldIsActive: 0
 --- !u!114 &919132148472915419
 MonoBehaviour:
@@ -7292,6 +7307,22 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  effect: 0
+--- !u!114 &919132148472915421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148472915417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd74280c235cfdf43b831f7ed61c9658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystems:
+  - {fileID: 1674996883}
+  - {fileID: 1162808580}
   effect: 0
 --- !u!4 &1031632035432170814
 Transform:

@@ -25,7 +25,7 @@ public class EffectController : MonoBehaviour
     float t;
     float animLength;
     float effectDuration;
-    public float speedMultiplier = 1f;
+    float speedMultiplier = 1f, sizeMultiplier = 1f;
     bool isActive;
 
     AudioSource audiosource;
@@ -33,6 +33,7 @@ public class EffectController : MonoBehaviour
 
     public static EffectController Instance { get => instance;}
     public float SpeedMultiplier { get => speedMultiplier; set => speedMultiplier = value; }
+    public float SizeMultiplier { get => sizeMultiplier; set => sizeMultiplier = value; }
 
     private void Awake() {
         if (instance == null) instance = this;

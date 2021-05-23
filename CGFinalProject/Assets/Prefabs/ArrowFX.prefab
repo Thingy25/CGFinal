@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -9088855963633928067}
   - component: {fileID: 7038186120071225007}
   - component: {fileID: 7941827174491695902}
+  - component: {fileID: 9059452545855368822}
   m_Layer: 0
   m_Name: ArrowFX
   m_TagString: Untagged
@@ -246,6 +247,21 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   effect: 1
+--- !u!114 &9059452545855368822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931199883766082712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd74280c235cfdf43b831f7ed61c9658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystems:
+  - {fileID: 8436124294116453241}
+  effect: 1
 --- !u!1001 &5931199883664639096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -407,6 +423,16 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836415127705743105, guid: 6fbafba8bdbe62e46bb8a71f4c484b1f,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836415127705743105, guid: 6fbafba8bdbe62e46bb8a71f4c484b1f,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2836415127705743106, guid: 6fbafba8bdbe62e46bb8a71f4c484b1f,
         type: 3}

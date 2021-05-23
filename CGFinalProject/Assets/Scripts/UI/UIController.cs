@@ -28,6 +28,9 @@ public class UIController : MonoBehaviour
     int selectedEffect;
     bool isPlayingEffect;
 
+    public delegate void SliderEvents();
+    public event SliderEvents OnSizeChanged;
+
     public static UIController Instance { get => instance; }
     #endregion
 
@@ -70,9 +73,10 @@ public class UIController : MonoBehaviour
     }
 
     public void SetSize() {
-        //Implementar cambio de tamaño
-        //Llamar alguna función que cambie el tamaño etc etc.
+        EffectController.Instance.SizeMultiplier = sizeSlider.value;
         slider2Value.text = sizeSlider.value.ToString("#.0");
+        OnSizeChanged();
+        //Eventico
     }
     
 

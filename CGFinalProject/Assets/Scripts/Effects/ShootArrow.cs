@@ -13,7 +13,7 @@ public class ShootArrow : MonoBehaviour
     public void Shoot() {
         GameObject clone = Instantiate(arrowPrefab, shootPosition.position, arrowPrefab.transform.rotation);
         /*Restrepo*/
-        AudioManager.Instance?.Play("Bow", EffectController.Instance.bowObj, EffectController.Instance.speedMultiplier, 1);
+        AudioManager.Instance?.Play("Bow", EffectController.Instance.bowObj, EffectController.Instance.SpeedMultiplier, 1);
         //Cuando la animacion hace lanzar la flecha, suena el sonido [ Suena aqui debido a que si se pone antes suena antes de lanzar la flecha]
         /*Restrepo*/
         rb = clone.GetComponent<Rigidbody>();
