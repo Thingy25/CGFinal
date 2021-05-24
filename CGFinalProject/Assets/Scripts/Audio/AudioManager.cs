@@ -11,9 +11,7 @@ public class AudioManager : MonoBehaviour
     public Sounds[] sonidos;
     public static AudioManager Instance { get => instance; }
 
-
-    public AnimationCurve lacurvita;
-    float curveValue;
+        float curveValue;
     float effectDuration = 8;
     float t;
 
@@ -45,14 +43,6 @@ public class AudioManager : MonoBehaviour
 
     }*/
 
-    private void Update()
-    {
-        curveValue = lacurvita.Evaluate(t / effectDuration);
-        t += Time.deltaTime;
-    }
-
-
-
     public void Play(string _nombre, GameObject _gameObject, float _pitchMod, float _volumen)
     {
         for (int i = 0; i < sonidos.Length; i++)
@@ -61,22 +51,23 @@ public class AudioManager : MonoBehaviour
             {
                 if (_gameObject.GetComponent<AudioSource>() == null)
                 {
-                    Debug.LogError("PASA POR AQUI");
                     sonidos[i].fuente = _gameObject.AddComponent<AudioSource>();
                     sonidos[i].fuente.clip = sonidos[i].clip;
-                    sonidos[i].fuente.volume = curveValue;
+                    sonidos[i].fuente.volume = _volumen;
                     sonidos[i].fuente.pitch = _pitchMod;
                     sonidos[i].fuente.spatialBlend = 1;
                     sonidos[i].fuente.playOnAwake = true;
                     sonidos[i].fuente.Play();
                 }
                 else
+                { 
                     sonidos[i].fuente.clip = sonidos[i].clip;
-                    sonidos[i].fuente.volume = curveValue;
+                    sonidos[i].fuente.volume = _volumen;
                     sonidos[i].fuente.pitch = _pitchMod;
                     sonidos[i].fuente.spatialBlend = 1;
                     sonidos[i].fuente.playOnAwake = true;
                     sonidos[i].fuente.Play();
+                }
             }
         }
 

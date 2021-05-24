@@ -16,6 +16,8 @@ public class CurveController : MonoBehaviour
     [SerializeField] ParticleSystem ps;
     ParticleSystem.LightsModule psLight;
 
+    public float audiovolume;
+
     float t = 0;
 
     public static CurveController Instance { get => instance; }
@@ -35,6 +37,7 @@ public class CurveController : MonoBehaviour
         curve1Value = curve1.Evaluate(t / effectDuration);
         psLight.intensityMultiplier = curve1Value * intensityMultiplier;
         lightIntensity = psLight.intensityMultiplier;
+        audiovolume = curve1Value;
         t += Time.deltaTime;
     }
 }

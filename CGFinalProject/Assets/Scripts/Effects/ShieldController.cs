@@ -7,8 +7,8 @@ public class ShieldController : MonoBehaviour
     private void OnParticleSystemStopped() {
 
         /*Restrepo*/
-        EffectController.Instance.ShieldActiveSound2();
         Debug.LogWarning("SI PASO POR ESTE CODIGO");
+        EffectController.Instance?.ShieldActiveSound2();
         /*Restrepo*/
 
         UIController.Instance?.UnlockButton();

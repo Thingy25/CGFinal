@@ -55,7 +55,7 @@ public class EffectController : MonoBehaviour
         //Restrepito
         if (shieldIsActive)
         {
-            AudioManager.Instance?.Play("Escudo Loop", shieldObje3, SpeedMultiplier, 1);
+            AudioManager.Instance?.Play("Escudo Loop", shieldObje3, speedMultiplier, CurveController.Instance.audiovolume);
         }
         //Si el Escudo esta activo se reproduce el sonido.
         //Restrepito
@@ -83,16 +83,22 @@ public class EffectController : MonoBehaviour
 
     void ShieldActiveSound() //Restrepo
     {
-        AudioManager.Instance?.Play("Escudo Activar", shieldObje, speedMultiplier, 1);
+        AudioManager.Instance?.Play("Escudo Activar", shieldObje, speedMultiplier, CurveController.Instance.audiovolume);
         shieldIsActive = true;
     }//Se Reproduce el sonido del escudo del AudioManager,se activa un Bool para tener encuenta el Loop
 
     public void ShieldActiveSound2() //Restrepo
     {
-        AudioManager.Instance?.Play("Escudo Final", shieldObje2, speedMultiplier, 1);
+        AudioManager.Instance?.Play("Escudo FInal", shieldObje2, speedMultiplier, CurveController.Instance.audiovolume);
         AudioManager.Instance?.Stop("Escudo Loop", shieldObje3);
         shieldIsActive = false;
     }//Se Reproduce el sonido del escudo del AudioManager,se Desactiva un Bool para tener encuenta el Loop y se desactiva el sonido del loop
+
+    public void ExplosionActive(GameObject _gameObject)
+    {
+        AudioManager.Instance?.Play("ExploArrow", _gameObject , speedMultiplier, 1f);
+    }
+
 
     void Shield() {
         shieldObj.SetActive(true);
