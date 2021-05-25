@@ -35,7 +35,6 @@ public class CurveController : MonoBehaviour
             t = 0;
         }
         curve1Value = curve1.Evaluate(t / effectDuration);
-        psLight.intensityMultiplier = curve1Value * intensityMultiplier;
         lightIntensity = psLight.intensityMultiplier;
         audiovolume = curve1Value;
         t += Time.deltaTime;

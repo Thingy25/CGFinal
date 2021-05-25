@@ -4826,7 +4826,7 @@ GameObject:
   - component: {fileID: 2879684280837938115}
   - component: {fileID: 1674996885}
   m_Layer: 0
-  m_Name: BubbleShieldV0.1
+  m_Name: BubbleShieldV0.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

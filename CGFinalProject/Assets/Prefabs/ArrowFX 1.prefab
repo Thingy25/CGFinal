@@ -196,20 +196,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  curve2:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   effectDuration: 3
   lightIntensity: 0
   intensityMultiplier: 3.5
   curve1Value: 0
   ps: {fileID: 3276095139476077177}
-  ps2: {fileID: 8436124294116453241}
-  ps3: {fileID: 2432976944595780191}
-  audiovolume: 0
 --- !u!114 &7941827174491695902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,11 +433,6 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minMaxState
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2836415127705743105, guid: 6fbafba8bdbe62e46bb8a71f4c484b1f,
-        type: 3}
-      propertyPath: SizeModule.enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2836415127705743106, guid: 6fbafba8bdbe62e46bb8a71f4c484b1f,
         type: 3}
@@ -744,7 +730,7 @@ PrefabInstance:
     - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
         type: 3}
       propertyPath: SizeModule.enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9167321085881125243, guid: 446a87b97f1429f48850db470af8ef6f,
         type: 3}
