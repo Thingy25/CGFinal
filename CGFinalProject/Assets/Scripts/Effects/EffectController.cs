@@ -96,7 +96,7 @@ public class EffectController : MonoBehaviour
 
     public void ExplosionActive(GameObject _gameObject)
     {
-        AudioManager.Instance?.Play("ExploArrow", _gameObject , speedMultiplier, 1f);
+        AudioManager.Instance?.Play("ExploArrow", _gameObject , speedMultiplier, CurveController.Instance.audiovolume);
     }
 
 
