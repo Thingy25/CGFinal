@@ -599,7 +599,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.9622642, g: 0.92664653, b: 0.8306337, a: 1}
-  m_Intensity: 0.55
+  m_Intensity: 0.35
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4607,6 +4607,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 367321547}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1092651507 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7156119767258395620, guid: 1ce4dcdc27984d34abcca7ea78a7083a,
+    type: 3}
+  m_PrefabInstance: {fileID: 367321547}
+  m_PrefabAsset: {fileID: 0}
 --- !u!199 &1162808579 stripped
 ParticleSystemRenderer:
   m_CorrespondingSourceObject: {fileID: 3831184597349447771, guid: 0faded994a07b3f49804a2f21709d59b,
@@ -7885,6 +7891,12 @@ Transform:
   m_Father: {fileID: 6502182840546954571}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &2040244691 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5935829177593719894, guid: 1ce4dcdc27984d34abcca7ea78a7083a,
+    type: 3}
+  m_PrefabInstance: {fileID: 367321547}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2080616133
 GameObject:
   m_ObjectHideFlags: 0
@@ -8246,7 +8258,12 @@ MonoBehaviour:
   shieldProjector: {fileID: 430945395}
   arrowRings: {fileID: 1904766042}
   shieldAnt: {fileID: 1521203144}
-  pSystems: []
+  pSystems:
+  - {fileID: 1674996883}
+  - {fileID: 1162808580}
+  - {fileID: 1256421959}
+  - {fileID: 1092651507}
+  - {fileID: 2040244691}
   shieldObje: {fileID: 994491402}
   shieldObje2: {fileID: 620358159}
   shieldObje3: {fileID: 1528190320}
@@ -8284,6 +8301,8 @@ MonoBehaviour:
   - {fileID: 1674996883}
   - {fileID: 1162808580}
   - {fileID: 1256421959}
+  - {fileID: 1092651507}
+  - {fileID: 2040244691}
   mGradient:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}

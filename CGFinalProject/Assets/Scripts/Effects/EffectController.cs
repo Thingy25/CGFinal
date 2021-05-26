@@ -18,7 +18,8 @@ public class EffectController : MonoBehaviour
     Renderer shieldRenderer;
     Animator anim;
     ParticleSystem ps;
-    [SerializeField] List<ParticleSystem> pSystems = new List<ParticleSystem>();
+    //[SerializeField] List<ParticleSystem> pSystems = new List<ParticleSystem>();
+    [SerializeField] ParticleSystem[] pSystems;
 
     [Header("Source")]
     [SerializeField] public GameObject shieldObje; // Para el Audio
@@ -50,7 +51,6 @@ public class EffectController : MonoBehaviour
         effectDuration = ps.main.duration + ps.main.startLifetimeMultiplier;
         shieldRenderer = shieldObj.GetComponent<Renderer>();
         t = effectDuration;
-        GetSubsystems();
     }
 
     private void Update() {
@@ -107,26 +107,21 @@ public class EffectController : MonoBehaviour
 
     void Shield() {
         shieldObj.SetActive(true);        
-        shieldProjector.transform.position += new Vector3(0, 4 * sizeMultiplier, 0);
+        shieldProjector.transform.position += new Vector3(0, 4.5f * sizeMultiplier, 0);
         shieldProjector.SetActive(true);
         Invoke("ShieldActiveSound", 0f ); //Restrepo
     }
 
     public void ShieldEnd() {
         shieldProjector.SetActive(false);    
-        shieldProjector.transform.position -= new Vector3(0, 4 * sizeMultiplier, 0);
+        shieldProjector.transform.position -= new Vector3(0, 4.5f * sizeMultiplier, 0);
+        shieldAnt.SetActive(false);
     }
 
     void Arrow() {
         GetComponent<ShootArrow>().Shoot(); //Agregar parámetro para speed multiplier
+        AudioManager.Instance?.Play("Bow", bowObj, SpeedMultiplier, 1f); //NO SE PUEDE MODIFICAR EL VOLUMEN POR RAMIREZ QUE PUSO EL CURVE CONTROLER DENTRO DE UN OBJETO QUE NO ESTABA NI CREADO !
         arrowProjector.SetActive(false);
-    }
-
-    void GetSubsystems() {
-        ParticleSystem[] systems = shieldObj.GetComponentsInChildren<ParticleSystem>();
-        foreach (ParticleSystem _ps in systems) {
-            pSystems.Add(_ps);
-        }
     }
 
     public void ModifyPSDuration() { //Revisar con Gio
