@@ -126,6 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystemObj: {fileID: 5931199883766082712, guid: 78daa8b2630c3c84eb128f6b2c9c823c,
     type: 3}
+  gameObject1: {fileID: 4600442402367505369, guid: 6322bb7098bb2d441bdf223e1e523973,
+    type: 3}
 --- !u!1001 &4004471273228339407
 PrefabInstance:
   m_ObjectHideFlags: 0
