@@ -4607,12 +4607,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 367321547}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &1092651507 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7156119767258395620, guid: 1ce4dcdc27984d34abcca7ea78a7083a,
-    type: 3}
-  m_PrefabInstance: {fileID: 367321547}
-  m_PrefabAsset: {fileID: 0}
 --- !u!199 &1162808579 stripped
 ParticleSystemRenderer:
   m_CorrespondingSourceObject: {fileID: 3831184597349447771, guid: 0faded994a07b3f49804a2f21709d59b,
@@ -8147,10 +8141,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1521203145}
+  - {fileID: 7021014693196179230}
   - {fileID: 430945397}
   - {fileID: 561633128}
   - {fileID: 1674996884}
-  - {fileID: 7021014693196179230}
   - {fileID: 751176135475970012}
   - {fileID: 5465940245795086327}
   - {fileID: 990104026}
@@ -8251,7 +8245,7 @@ MonoBehaviour:
   arrowProjector: {fileID: 1508057466}
   shieldProjector: {fileID: 430945395}
   arrowRings: {fileID: 1904766042}
-  shieldAnt: {fileID: 1092651507}
+  shieldAnt: {fileID: 1521203144}
   pSystems: []
   shieldObje: {fileID: 994491402}
   shieldObje2: {fileID: 620358159}
@@ -10016,7 +10010,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 543450652142927715}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7078722786075648277
 Transform:
