@@ -136,9 +136,7 @@
 
 			float y = lerp(yOriginal, yModificado, mask.r);
 
-			float yClamped = clamp(y, 0, 5);
-
-			v.vertex.xyz = float3(x, yClamped, z);
+			v.vertex.xyz = float3(x, y, z);
 			v.normal = normalize(float3(v.normal.x, v.normal.y, v.normal.z));
 		}
 
