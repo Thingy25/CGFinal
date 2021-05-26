@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Restrepito Final.unity
+    guid: 2c85793876467a2409ee6b4ea3ccc893
   m_configObjects: {}
