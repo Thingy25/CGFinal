@@ -15,6 +15,7 @@ public class ShadersController : MonoBehaviour
 
     public static ShadersController Instance { get => instance; }
     public Color SelectedColor { get => selectedColor; }
+    public Color DefaultColor { get => defaultColor; }
 
     public delegate void UpdateColor();
     public event UpdateColor OnColorChanged;

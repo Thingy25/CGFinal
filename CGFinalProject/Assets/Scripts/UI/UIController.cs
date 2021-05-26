@@ -98,6 +98,7 @@ public class UIController : MonoBehaviour
         showColorsButton.SetActive(true);
         PostProcessingCam.Instance.fac = Mathf.Lerp(1,0, 2f);
         if (selectedEffect == 0) EffectController.Instance.ShieldEnd();
+        statusText.text = "En espera";
     }
 
     void DefaultValues() {

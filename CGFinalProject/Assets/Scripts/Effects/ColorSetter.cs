@@ -15,6 +15,8 @@ public class ColorSetter : MonoBehaviour
         {
             case EffectTypes.Shield: 
             ShadersController.Instance.OnColorChanged += SetShieldColor;
+            EffectController.Instance.shieldProjector.GetComponent<Projector>()
+            .material.SetColor("_Color", ShadersController.Instance.DefaultColor);
             break;
             case EffectTypes.Arrow:
             SetArrowColor();
