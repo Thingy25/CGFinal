@@ -5510,6 +5510,26 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2879684280837938115, guid: 0faded994a07b3f49804a2f21709d59b,
+        type: 3}
+      propertyPath: curve1.m_Curve.Array.data[0].value
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879684280837938115, guid: 0faded994a07b3f49804a2f21709d59b,
+        type: 3}
+      propertyPath: curve1.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879684280837938115, guid: 0faded994a07b3f49804a2f21709d59b,
+        type: 3}
+      propertyPath: curve1.m_Curve.Array.data[1].inSlope
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879684280837938115, guid: 0faded994a07b3f49804a2f21709d59b,
+        type: 3}
+      propertyPath: curve1.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3831184597033097475, guid: 0faded994a07b3f49804a2f21709d59b,
         type: 3}
       propertyPath: m_LocalPosition.x

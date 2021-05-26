@@ -24,7 +24,8 @@ public class CurveController : MonoBehaviour
 
     void Awake()
     {
-        audiovolume = curve1.Evaluate(0);
+        //audiovolume = curve1.Evaluate(0f);
+        audiovolume = 1f;
         if (instance == null) { instance = this; }
         psLight = ps.lights;
     }
@@ -33,7 +34,7 @@ public class CurveController : MonoBehaviour
     {
         if(t>=effectDuration)
         {
-            t = 0;
+            t = 0f;
         }
         curve1Value = curve1.Evaluate(t / effectDuration);
         audiovolume = curve1Value;
