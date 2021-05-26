@@ -5000,6 +5000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlobLightProjector
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 21543d2b66928224f8a9536ff3811682, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 21543d2b66928224f8a9536ff3811682, type: 3}
       propertyPath: m_LocalPosition.x
       value: 613.719
@@ -7515,7 +7519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldObj: {fileID: 1674996881}
-  arrowObj: {fileID: 0}
+  arrowProjector: {fileID: 0}
   arrowRings: {fileID: 1904766042}
   pSystems: []
   shieldObje: {fileID: 0}
