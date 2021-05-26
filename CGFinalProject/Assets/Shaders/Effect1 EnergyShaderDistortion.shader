@@ -132,7 +132,7 @@
 
 			float4 mask = tex2Dlod(_MaskTex, float4(uv, 0, 0));
 
-			float yModificado = yOriginal + sin(0.5 * x) * 0.2;
+			float yModificado = yOriginal + sin(0.5 * x) * 0.2 + 0.2;
 
 			float y = lerp(yOriginal, yModificado, mask.r);
 
