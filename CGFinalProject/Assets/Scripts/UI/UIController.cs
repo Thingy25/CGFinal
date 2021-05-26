@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour
     [SerializeField] Button buttonEffect1;
     [SerializeField] Button buttonEffect2;
     [SerializeField] Button buttonActive;
+    [SerializeField] Button quitButton;
     [SerializeField] TextMeshProUGUI statusText;
     [SerializeField] GameObject showSliderButton, hideSliderButton, slidersPanel, showColorsButton, hideColorsButton, colorPanel;
 
@@ -112,5 +113,9 @@ public class UIController : MonoBehaviour
         EffectController.Instance.PlayEffect(selectedEffect);
         LockButton();        
         statusText.text = "Activando efecto...";
+    }
+
+    public void ExitApp() {
+        Application.Quit();
     }
 }
