@@ -13,7 +13,7 @@ public class Arrow : MonoBehaviour
 
         /*Restrepo*/
         //Instantiate(audiosource, contact.point + Vector3.forward * -0.5f, audiosource.transform.rotation);
-        AudioManager.Instance?.Play("ExploArrow", Instantiate(gameObject1), EffectController.Instance.SpeedMultiplier, 1f);
+        AudioManager.Instance?.Play("ExploArrow", Instantiate(gameObject1), EffectController.Instance.SpeedMultiplier, CurveController.Instance.audiovolume);
         //Instantiate(new GameObject("Sonido"), contact.point + Vector3.forward * -0.5f, particleSystemObj.transform.rotation)
         //Cuando impacta la flecha se reproduce un Audio llamado "Arrow Impact" del AudioManager
         /*Restrepo*/
