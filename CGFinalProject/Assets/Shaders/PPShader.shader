@@ -24,6 +24,7 @@
             return c2;*/
             float4 main = tex2D(_MainTex, i.uv);
             float4 output = float4(0, 0, 0, 1);
+            float4 output1 = main;
 
             if (main.r > 0, main.g > 0, main.b > 0)
             {
@@ -31,11 +32,11 @@
                 output = float4(gray, gray, gray, 1);
             }
 
-            output.r = output.r;
-            output.g = output.g;
-            output.b = output.b;
+            output1.r = main.r*1.5;
+            output1.g = main.g*1.5;
+            output1.b = main.b*1.5;
 
-            return lerp(output, main, _Fac);
+            return lerp(output, output1, _Fac);
         }
 
         ENDCG

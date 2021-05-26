@@ -6864,8 +6864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: cd536b7fe26f50e40b96302cb3deae9d, type: 3}
-  ppMat: {fileID: 2100000, guid: 931312ff3f2679746b4fadff5329e5fb, type: 2}
-  fac: 0.77
+  fac: 1
 --- !u!198 &1904766042 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7493800502424818158, guid: 4b5da0a945f990f408100bba0937b647,
@@ -7409,7 +7408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldObj: {fileID: 1674996881}
-  arrowObj: {fileID: 0}
+  arrowProjector: {fileID: 0}
   arrowRings: {fileID: 1904766042}
   pSystems: []
   shieldObje: {fileID: 0}
