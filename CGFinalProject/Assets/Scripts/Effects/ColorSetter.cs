@@ -46,6 +46,8 @@ public class ColorSetter : MonoBehaviour
             var main = ps.main;
             main.startColor = ShadersController.Instance.SelectedColor; //mGradient;            
         }
+        EffectController.Instance.shieldProjector.GetComponent<Projector>()
+            .material.SetColor("_Color", ShadersController.Instance.SelectedColor);
     }
 
     public void SetArrowColor() {

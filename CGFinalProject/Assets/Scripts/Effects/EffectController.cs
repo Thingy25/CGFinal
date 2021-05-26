@@ -7,8 +7,12 @@ public class EffectController : MonoBehaviour
     static EffectController instance;
     [SerializeField] GameObject shieldObj; //Escudo
     [SerializeField] GameObject arrowProjector;
+    public GameObject shieldProjector;
+
 
     [SerializeField] ParticleSystem arrowRings; //Rings particles
+    [SerializeField] GameObject shieldAnt; //Shield Anticipation
+
 
     GameObject activeEffectObject;
     Renderer shieldRenderer;
@@ -67,7 +71,8 @@ public class EffectController : MonoBehaviour
             case 0: //Escudo
             bowObj.SetActive(false);
             anim?.SetTrigger("ShieldAnimation");
-            Invoke("GetAnimationTime", 0.2f);
+            shieldAnt.SetActive(true);
+            Invoke("GetAnimationTime", 0.2f);            
             break;
 
             case 1: //Flecha
@@ -78,6 +83,7 @@ public class EffectController : MonoBehaviour
             arrowRings.Play();   
             break;
         }
+        PostProcessingCam.Instance.fac = Mathf.Lerp(0, 1, 1f);
     }
 
     void ShieldActiveSound() //Restrepo
@@ -100,8 +106,15 @@ public class EffectController : MonoBehaviour
 
 
     void Shield() {
-        shieldObj.SetActive(true);
+        shieldObj.SetActive(true);        
+        shieldProjector.transform.position += new Vector3(0, 4 * sizeMultiplier, 0);
+        shieldProjector.SetActive(true);
         Invoke("ShieldActiveSound", 0f ); //Restrepo
+    }
+
+    public void ShieldEnd() {
+        shieldProjector.SetActive(false);    
+        shieldProjector.transform.position -= new Vector3(0, 4 * sizeMultiplier, 0);
     }
 
     void Arrow() {

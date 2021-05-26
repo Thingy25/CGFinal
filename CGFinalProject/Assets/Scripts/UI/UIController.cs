@@ -96,6 +96,8 @@ public class UIController : MonoBehaviour
         buttonPanel.SetActive(true);
         showSliderButton.SetActive(true);
         showColorsButton.SetActive(true);
+        PostProcessingCam.Instance.fac = Mathf.Lerp(1,0, 2f);
+        if (selectedEffect == 0) EffectController.Instance.ShieldEnd();
     }
 
     void DefaultValues() {
