@@ -120,6 +120,7 @@ public class EffectController : MonoBehaviour
 
     void Arrow() {
         GetComponent<ShootArrow>().Shoot(); //Agregar parámetro para speed multiplier
+        AudioManager.Instance?.Play("Bow", bowObj, SpeedMultiplier, 1f); //NO SE PUEDE MODIFICAR EL VOLUMEN POR RAMIREZ QUE PUSO EL CURVE CONTROLER DENTRO DE UN OBJETO QUE NO ESTABA NI CREADO !
         arrowProjector.SetActive(false);
     }
 
