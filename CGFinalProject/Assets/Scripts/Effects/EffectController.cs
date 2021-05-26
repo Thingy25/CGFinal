@@ -6,7 +6,7 @@ public class EffectController : MonoBehaviour
 {
     static EffectController instance;
     [SerializeField] GameObject shieldObj; //Escudo
-    [SerializeField] GameObject arrowObj; //Flecha
+    [SerializeField] GameObject arrowProjector;
 
     [SerializeField] ParticleSystem arrowRings; //Rings particles
 
@@ -65,19 +65,18 @@ public class EffectController : MonoBehaviour
         switch (effect)
         {
             case 0: //Escudo
+            bowObj.SetActive(false);
             anim?.SetTrigger("ShieldAnimation");
             Invoke("GetAnimationTime", 0.2f);
-            
-            //To-Do: Cinemachine change camera
+            break;
 
-                break;
-
-            case 1: //Flecha    
+            case 1: //Flecha
+            bowObj.SetActive(true);
+            arrowProjector.SetActive(true);    
             anim?.SetTrigger("ArrowAnimation");
             Invoke("GetAnimationTime", 0.2f);
-            arrowRings.Play();
-            //To-Do: Cinemachine change camera       
-                break;
+            arrowRings.Play();   
+            break;
         }
     }
 
@@ -107,6 +106,7 @@ public class EffectController : MonoBehaviour
 
     void Arrow() {
         GetComponent<ShootArrow>().Shoot(); //Agregar parámetro para speed multiplier
+        arrowProjector.SetActive(false);
     }
 
     void GetSubsystems() {
